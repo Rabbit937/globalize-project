@@ -11,13 +11,18 @@
                 </template>
             </el-table-column>
         </el-table>
-        <el-pagination v-model:current-page="currentPage" :page-size="pageSize" :total="total"
-            layout="prev, pager, next" @current-change="handlePageChange" />
+        <el-config-provider :locale="zhCn">
+            <el-pagination v-model:current-page="currentPage" v-model:page-size="pageSize"
+                :page-sizes="[100, 200, 300, 400]" background layout="total, sizes, prev, pager, next, jumper"
+                :total="total" @size-change="handleSizeChange" @current-change="handlePageChange" />
+        </el-config-provider>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+import { zhCn } from "element-plus/es/locales.mjs";
+
 
 interface TableRow {
     strategy: string;
@@ -54,6 +59,10 @@ const paginatedData = computed(() => {
 const handlePageChange = (page: number) => {
     currentPage.value = page;
 };
+
+const handleSizeChange = (size: number) => {
+    pageSize.value = size;
+}
 
 const handleClick = (row: TableRow) => {
     console.log('操作按钮点击', row);
