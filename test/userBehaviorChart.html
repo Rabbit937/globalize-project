@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts ThemeRiver 实时更新随机数据</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+</head>
+
+<body style="height: 100%; margin: 0">
+    <!-- 准备一个 DOM 容器 -->
+    <div id="main" style="height: 100%"></div>
+    <script type="text/javascript">
+        // 基于准备好的 DOM，初始化 echarts 实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 初始化数据
+        var categories = ['性格偏好', '趣味偏好', '消费偏好', '用户消费价值', '社会属性', '媒体属性'];
+        var maxUsers = 50; // 显示的最大用户数量
+        var userCount = 0; // 初始用户数量
+        var data = [];
+
+        // 生成初始数据的函数
+        function generateInitialData(categories, count) {
+            var result = [];
+            for (var i = 1; i <= count; i++) {
+                categories.forEach(function (category) {
+                    result.push([i.toString(), Math.round(Math.random() * 100), category]);
+                });
+            }
+            return result;
+        }
+
+        // 配置选项
+        var option = {
+            title: {
+                text: '潜在画像分析图 - 实时更新'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'line',
+                    lineStyle: {
+                        color: 'rgba(0,0,0,0.2)',
+                        width: 1,
+                        type: 'solid'
+                    }
+                }
+            },
+            legend: {
+                data: categories
+            },
+            singleAxis: {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45
+                },
+                data: []
+            },
+            dataZoom: [{
+                type: 'slider',
+                show: false,
+                start: 0,
+                end: 100
+            }],
+            series: [
+                {
+                    type: 'themeRiver',
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: data
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表
+        myChart.setOption(option);
+
+        // 更新数据的函数
+        function updateData() {
+            userCount++;
+            categories.forEach(function (category) {
+                data.push([userCount.toString(), Math.round(Math.random() * 100), category]); // 添加新数据
+            });
+
+            // 更新 x 轴数据
+            var xAxisData = Array.from({ length: userCount }, (_, i) => (i + 1).toString());
+
+            myChart.setOption({
+                singleAxis: {
+                    data: xAxisData
+                },
+                series: [{
+                    data: data
+                }],
+                dataZoom: [{
+                    startValue: userCount - maxUsers > 0 ? (userCount - maxUsers).toString() : '0',
+                    endValue: userCount.toString()
+                }]
+            });
+        }
+
+        // 初始生成50个数据
+        data = generateInitialData(categories, maxUsers);
+        userCount = maxUsers;
+        myChart.setOption({
+            singleAxis: {
+                data: Array.from({ length: userCount }, (_, i) => (i + 1).toString())
+            },
+            series: [{
+                data: data
+            }]
+        });
+
+        // 定时更新数据
+        setInterval(updateData, 1000); // 每秒钟更新一次数据
+    </script>
+</body>
+
+</html>
