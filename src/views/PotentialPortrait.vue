@@ -1,6 +1,6 @@
 <template>
     <el-row class="h-100vh">
-        <el-col :span="3">
+        <el-col :span="2">
             <el-menu class="h-100%">
                 <el-menu-item @click="scrollToElement(personalityPreferenceEl)">性格偏好</el-menu-item>
                 <el-menu-item @click="scrollToElement(interestPreferenceEl)">趣味偏好</el-menu-item>
@@ -10,19 +10,19 @@
                 <el-menu-item @click="scrollToElement(mediaAttributeEl)">媒体属性</el-menu-item>
             </el-menu>
         </el-col>
-        <el-col :span="21">
-            <div ref="chartRef"
-                style="width: 100%; height:400px;background-color: #fff;border-bottom: 1px solid #dcdfe6;"
-                class="pb-10px"></div>
-            <el-row class="px-16px py-8px" style="border-bottom: 1px solid #dcdfe6;">
-                <el-col>
-                    <el-button @click="router.push('/delivery_strategy')">
-                        跳转到投放策略
-                    </el-button>
-                </el-col>
-            </el-row>
+        <el-col :span="22" class="h-100%">
+            <el-scrollbar style="width:100%;height: calc(100vh );">
+                <div ref="chartRef"
+                    style="width: 100%; height:400px;background-color: #fff;border-bottom: 1px solid #dcdfe6;"
+                    class="pb-10px"></div>
+                <el-row class="px-16px py-8px" style="border-bottom: 1px solid #dcdfe6;">
+                    <el-col>
+                        <el-button @click="router.push('/delivery_strategy')">
+                            跳转到投放策略
+                        </el-button>
+                    </el-col>
+                </el-row>
 
-            <el-scrollbar style="width:100%;height: calc(100vh - 460px);">
                 <el-row class="flex">
                     <el-col :span="1.5" class="w-48% p-20px">
                         <div class="w-100% color-[#303133] overflow-hidden"

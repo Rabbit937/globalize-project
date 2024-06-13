@@ -148,6 +148,11 @@ const videoElRef = ref<HTMLVideoElement[]>();
 const buttonElRef = ref<HTMLButtonElement[]>();
 
 const playVideo = (videoElRef: HTMLVideoElement[] | undefined, buttonElRef: HTMLButtonElement[] | undefined, index: number) => {
+
+    console.log(index);
+
+
+
     if (videoElRef && buttonElRef) {
         const video = videoElRef[index]
         const button = buttonElRef[index];
