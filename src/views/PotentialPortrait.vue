@@ -1,10 +1,98 @@
 <template>
-    <div ref="chartRef" style="height: 100%; width: 100%;"></div>
+    <el-row class="h-100vh">
+        <el-col :span="3">
+            <el-menu class="h-100%">
+                <el-menu-item @click="scrollToElement(personalityPreferenceEl)">性格偏好</el-menu-item>
+                <el-menu-item @click="scrollToElement(interestPreferenceEl)">趣味偏好</el-menu-item>
+                <el-menu-item @click="scrollToElement(consumptionPreferenceEl)">消费偏好</el-menu-item>
+                <el-menu-item @click="scrollToElement(userConsumptionValueEl)">用户消费价值</el-menu-item>
+                <el-menu-item @click="scrollToElement(socialAttributeEl)">社会属性</el-menu-item>
+                <el-menu-item @click="scrollToElement(mediaAttributeEl)">媒体属性</el-menu-item>
+            </el-menu>
+        </el-col>
+        <el-col :span="21">
+            <div ref="chartRef"
+                style="width: 100%; height:400px;background-color: #fff;border-bottom: 1px solid #dcdfe6;"
+                class="pb-10px"></div>
+            <el-row class="px-16px py-8px" style="border-bottom: 1px solid #dcdfe6;">
+                <el-col>
+                    <el-button @click="router.push('/delivery_strategy')">
+                        跳转到投放策略
+                    </el-button>
+                </el-col>
+            </el-row>
+
+            <el-scrollbar style="width:100%;height: calc(100vh - 460px);">
+                <el-row class="flex">
+                    <el-col :span="1.5" class="w-48% p-20px">
+                        <div class="w-100% color-[#303133] overflow-hidden"
+                            style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                            ref="personalityPreferenceEl">
+                            <div class="p-20px">
+                                <img src="../assets/images/xinzuo.webp" alt="">
+                            </div>
+                        </div>
+                    </el-col>
+                    <el-col :span="1.5" class="w-48% p-20px">
+                        <div class="w-100% color-[#303133] overflow-hidden"
+                            style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                            ref="interestPreferenceEl">
+                            <div class="p-20px">
+                                <p v-for="o in 4" :key="o" class="text item">趣味偏好</p>
+                            </div>
+                        </div>
+                    </el-col>
+
+                    <el-col :span="1.5" class="w-48% p-20px">
+                        <div class="w-100% color-[#303133] overflow-hidden "
+                            style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                            ref="consumptionPreferenceEl">
+                            <div class="p-20px">
+                                <p v-for="o in 4" :key="o" class="text item">消费偏好</p>
+                            </div>
+                        </div>
+                    </el-col>
+
+                    <el-col :span="1.5" class="w-48% p-20px">
+                        <div class="w-100% color-[#303133] overflow-hidden"
+                            style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                            ref="userConsumptionValueEl">
+                            <div class="p-20px">
+                                <p v-for="o in 4" :key="o" class="text item">用户消费价值</p>
+                            </div>
+                        </div>
+                    </el-col>
+                    <el-col :span="1.5" class="w-48% p-20px">
+                        <div class="w-100% color-[#303133] overflow-hidden "
+                            style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                            ref="socialAttributeEl">
+                            <div class="p-20px">
+                                <p v-for="o in 4" :key="o" class="text item">社会属性</p>
+                            </div>
+                        </div>
+                    </el-col>
+                    <el-col :span="1.5" class="w-48% p-20px">
+                        <div class="w-100% color-[#303133] overflow-hidden "
+                            style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                            ref="mediaAttributeEl">
+                            <div class="p-20px">
+                                <p v-for="o in 4" :key="o" class="text item">媒体属性</p>
+                            </div>
+                        </div>
+                    </el-col>
+
+                </el-row>
+            </el-scrollbar>
+        </el-col>
+    </el-row>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
 import * as echarts from 'echarts';
+
+const router = useRouter();
 
 // 初始化数据和变量
 const chartRef = ref<HTMLDivElement | null>(null);
@@ -139,6 +227,20 @@ onBeforeUnmount(() => {
         chartInstance.dispose();
     }
 });
+
+
+
+
+const personalityPreferenceEl = ref();
+const interestPreferenceEl = ref();
+const consumptionPreferenceEl = ref();
+const userConsumptionValueEl = ref();
+const socialAttributeEl = ref();
+const mediaAttributeEl = ref();
+
+const scrollToElement = (el: HTMLElement) => {
+    el.scrollIntoView({ behavior: 'smooth' });
+};
 </script>
 
 <style scoped>

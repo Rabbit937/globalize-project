@@ -1,22 +1,36 @@
 <template>
-    <div>
-        <el-table :data="paginatedData" style="width: 100%;height: 800px;" border>
-            <el-table-column prop="strategy" label="策略"></el-table-column>
-            <el-table-column prop="material" label="素材"></el-table-column>
-            <el-table-column prop="cost" label="消耗5000"></el-table-column>
-            <el-table-column prop="roi" label="ROI到90%"></el-table-column>
-            <el-table-column label="操作">
-                <template #default="scope">
-                    <el-button type="primary" @click="handleClick(scope.row)">操作</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-        <el-config-provider :locale="zhCn">
-            <el-pagination v-model:current-page="currentPage" v-model:page-size="pageSize"
-                :page-sizes="[100, 200, 300, 400]" background layout="total, sizes, prev, pager, next, jumper"
-                :total="total" @size-change="handleSizeChange" @current-change="handlePageChange" />
-        </el-config-provider>
-    </div>
+
+    <el-row class="p-8px">
+        <el-col>
+            <div class="font-size-24px font-bold">
+                <span>投放策略</span>
+            </div>
+        </el-col>
+    </el-row>
+
+    <el-row class="p-8px">
+        <el-col class="w-100%">
+            <el-table :data="paginatedData"
+                style="width:100%;min-height:300px;max-height: 800px;height: calc(100vh - 120px);" border>
+                <el-table-column prop="strategy" label="策略"></el-table-column>
+                <el-table-column prop="material" label="素材"></el-table-column>
+                <el-table-column prop="cost" label="消耗5000"></el-table-column>
+                <el-table-column prop="roi" label="ROI到90%"></el-table-column>
+                <el-table-column label="操作">
+                    <template #default="scope">
+                        <el-button type="primary" @click="handleClick(scope.row)">操作</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-config-provider :locale="zhCn">
+                <el-pagination class="mt-10px" v-model:current-page="currentPage" v-model:page-size="pageSize"
+                    :page-sizes="[10, 20, 50, 100]" background layout="total, sizes, prev, pager, next, jumper"
+                    :total="total" @size-change="handleSizeChange" @current-change="handlePageChange" />
+            </el-config-provider>
+        </el-col>
+    </el-row>
+
+
 </template>
 
 <script lang="ts" setup>
