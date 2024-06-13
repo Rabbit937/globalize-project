@@ -215,7 +215,7 @@ onMounted(() => {
         });
 
         // 每秒钟更新一次数据
-        updateInterval = window.setInterval(updateData, 1000);
+        updateInterval = window.setInterval(updateData, 5000);
     }
 });
 

@@ -99,7 +99,7 @@
                     </el-col>
                 </el-col>
                 <el-col :span="1.5">
-                    <el-button @click="router.push('/user_behavior')">跳转行为分析</el-button>
+                    <el-button @click="router.push('/user_behavior')">行为分析</el-button>
                 </el-col>
             </el-row>
             <el-row class="p-8px">
