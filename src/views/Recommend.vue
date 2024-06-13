@@ -10,9 +10,9 @@
                         <el-button>查询</el-button>
                     </el-col>
                 </el-col>
-                <el-col :span="1.5">
-                    <el-button @click="router.push('/user_behavior')">跳转行为分析</el-button>
-                </el-col>
+                <!-- <el-col :span="1.5">
+                    <el-button @click="router.push('/user_behavior')">用户行为分析</el-button>
+                </el-col> -->
             </el-row>
             <el-row class="p-8px">
                 <el-scrollbar style="width:100%;min-height:300px;max-height: 800px;height: calc(100vh - 120px - 50px);">
@@ -74,6 +74,12 @@
                                             <div class="py-0.5">
                                                 <span>{{ video.findCntSum }}万</span>
                                             </div>
+
+                                            <div>
+                                                <el-button link type="primary" size="small"
+                                                    @click="router.push('/user_behavior')">用户行为分析</el-button link
+                                                    type="primary" size="small">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,16 +104,19 @@
                         <el-button>查询</el-button>
                     </el-col>
                 </el-col>
-                <el-col :span="1.5">
-                    <el-button @click="router.push('/user_behavior')">行为分析</el-button>
-                </el-col>
+
             </el-row>
+            <!-- <el-row class="p-8px flex justify-between">
+                <el-col :span="1.5">
+                    <el-button type="primary" @click="router.push('/user_behavior')">用户行为分析</el-button>
+                </el-col>
+            </el-row> -->
             <el-row class="p-8px">
                 <el-col class="w-100%">
                     <el-table :data="paginatedData"
                         style="width:100%;min-height:300px;max-height: 800px;height: calc(100vh - 120px - 50px);"
                         border>
-                        <el-table-column prop="title" label="素材名称" width="300"></el-table-column>
+                        <el-table-column prop="title" label="素材名称" width="200"></el-table-column>
                         <el-table-column prop="cost" label="消耗"></el-table-column>
                         <el-table-column prop="roi1" label="roi1"></el-table-column>
                         <el-table-column prop="roi2" label="roi2"></el-table-column>
@@ -123,8 +132,13 @@
                         <el-table-column prop="reg" label="注册量"></el-table-column>
                         <el-table-column prop="pay" label="支付数量"></el-table-column>
                         <el-table-column prop="transform_rate" label="转化率"></el-table-column>
-                        <el-table-column prop="play3s_rate" label="播放3s转化率" width="120"
-                            :align="'center'"></el-table-column>
+                        <el-table-column prop="play3s_rate" label="播放3s转化率" :align="'center'"></el-table-column>
+                        <el-table-column label="操作" width="200">
+                            <template #default>
+                                <el-button type="primary" @click="router.push('/user_behavior')">用户行为分析</el-button>
+                            </template>
+                        </el-table-column>
+
                     </el-table>
                     <el-config-provider :locale="zhCn">
                         <el-pagination class="mt-10px" v-model:current-page="currentPage" v-model:page-size="pageSize"

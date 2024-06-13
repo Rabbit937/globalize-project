@@ -18,7 +18,7 @@
                 <el-row class="px-16px py-8px" style="border-bottom: 1px solid #dcdfe6;">
                     <el-col>
                         <el-button @click="router.push('/delivery_strategy')">
-                            跳转到投放策略
+                            生成投放策略
                         </el-button>
                     </el-col>
                 </el-row>
@@ -28,6 +28,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden"
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="personalityPreferenceEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>性格偏好</span>
+                            </div>
                             <div class="p-20px">
                                 <img src="../assets/images/xinzuo.webp" alt="">
                             </div>
@@ -37,6 +40,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden"
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="interestPreferenceEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>趣味偏好</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">趣味偏好</p>
                             </div>
@@ -47,6 +53,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="consumptionPreferenceEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>消费偏好</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">消费偏好</p>
                             </div>
@@ -57,6 +66,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden"
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="userConsumptionValueEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>用户消费价值</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">用户消费价值</p>
                             </div>
@@ -66,6 +78,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="socialAttributeEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>社会属性</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">社会属性</p>
                             </div>
@@ -75,6 +90,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="mediaAttributeEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>媒体属性</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">媒体属性</p>
                             </div>

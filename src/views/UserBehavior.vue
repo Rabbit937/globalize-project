@@ -19,16 +19,20 @@
                 <el-row class="px-16px py-8px" style="border-bottom: 1px solid #dcdfe6;">
                     <el-col>
                         <el-button @click="router.push('/potential_portrait')">
-                            生成画像
+                            生成用户画像
                         </el-button>
                     </el-col>
                 </el-row>
 
                 <el-row class="flex">
                     <el-col :span="1.5" class="w-48% p-20px">
+
                         <div class="w-100% color-[#303133] overflow-hidden"
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="clickAdEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>点击广告</span>
+                            </div>
                             <div class="p-20px">
                                 <div class="w-100% h-500px" ref="clickChartsRef"></div>
                             </div>
@@ -38,6 +42,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden"
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="downloadAndRegEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>下载注册</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">下载注册</p>
                             </div>
@@ -48,6 +55,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="refModeEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>注册方式</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">注册方式</p>
                             </div>
@@ -58,6 +68,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden"
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="frequentlyActiveEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>频繁活跃</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">频繁活跃</p>
                             </div>
@@ -67,6 +80,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="paymentPreferenceEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>付费偏好</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">付费偏好</p>
                             </div>
@@ -76,6 +92,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="socialInteractionEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>人际社交</span>
+                            </div>
                             <div class="p-20px">
                                 <p v-for="o in 4" :key="o" class="text item">人际社交</p>
                             </div>
@@ -85,6 +104,9 @@
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                             ref="customerComplaintEl">
+                            <div class="pl-16px pt-16px font-size-16px font-bold">
+                                <span>客诉交互</span>
+                            </div>
                             <div class="w-100%">
                                 <img class="w-100%" src="../assets/images/kesu.jpg" alt="">
                             </div>
