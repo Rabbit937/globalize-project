@@ -10,8 +10,8 @@
                 <el-menu-item @click="scrollToElement(mediaAttributeEl)">媒体属性</el-menu-item>
             </el-menu>
         </el-col>
-        <el-col :span="22" class="h-100%">
-            <el-scrollbar style="width:100%;height: calc(100vh );">
+        <el-col :span="22" class="h-100% pt-20px">
+            <el-scrollbar style="width:100%;height: calc(100vh - 20px);">
                 <div ref="chartRef"
                     style="width: 100%; height:400px;background-color: #fff;border-bottom: 1px solid #dcdfe6;"
                     class="pb-10px"></div>

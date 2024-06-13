@@ -1,24 +1,23 @@
 <template>
-
-    <el-row class="p-8px">
-        <el-col>
-            <div class="font-size-24px font-bold">
-                <span>投放策略</span>
-            </div>
-        </el-col>
-    </el-row>
-
-    <el-row class="p-8px">
+    <el-row class="p-8px pt-20px">
         <el-col class="w-100%">
             <el-table :data="paginatedData"
                 style="width:100%;min-height:300px;max-height: 800px;height: calc(100vh - 120px);" border>
-                <el-table-column prop="strategy" label="策略"></el-table-column>
-                <el-table-column prop="material" label="素材"></el-table-column>
-                <el-table-column prop="cost" label="消耗5000"></el-table-column>
-                <el-table-column prop="roi" label="ROI到90%"></el-table-column>
-                <el-table-column label="操作">
-                    <template #default="scope">
-                        <el-button type="primary" @click="handleClick(scope.row)">操作</el-button>
+                <el-table-column prop="material_id" label="素材ID"></el-table-column>
+                <el-table-column prop="fistroi" label="预估首日ROI"></el-table-column>
+                <el-table-column prop="area" label="区域"></el-table-column>
+                <el-table-column prop="age" label="年龄"></el-table-column>
+                <el-table-column prop="xingbie" label="性别"></el-table-column>
+                <el-table-column prop="xueli" label="学历"></el-table-column>
+                <el-table-column prop="buy" label="消费能力"></el-table-column>
+                <el-table-column prop="net" label="用户网络"></el-table-column>
+                <el-table-column prop="pinpai" label="设备品牌"></el-table-column>
+                <el-table-column prop="price" label="设备价格"></el-table-column>
+                <el-table-column prop="time" label="建议投放时间"></el-table-column>
+                <el-table-column prop="ad" label="用户媒体" width="240"></el-table-column>
+                <el-table-column label="操作" width="240">
+                    <template #default>
+                        <el-button type="primary" @click="handleClick()">立即创建广告</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -37,29 +36,10 @@
 import { ref, computed } from 'vue';
 import { zhCn } from "element-plus/es/locales.mjs";
 
+import policyData from '../data/policyData.json'
 
-interface TableRow {
-    strategy: string;
-    material: string;
-    cost: number;
-    roi: string;
-}
 
-// 生成随机假数据
-const generateRandomData = (count: number): TableRow[] => {
-    const data: TableRow[] = [];
-    for (let i = 1; i <= count; i++) {
-        data.push({
-            strategy: `策略${i}`,
-            material: `素材${Math.floor(Math.random() * 100)}`,
-            cost: Math.floor(Math.random() * 10000),
-            roi: `${Math.floor(Math.random() * 100)}%`
-        });
-    }
-    return data;
-};
-
-const tableData = ref<TableRow[]>(generateRandomData(5000)); // 生成50条随机假数据
+const tableData = ref(policyData); // 生成50条随机假数据
 const currentPage = ref(1);
 const pageSize = ref(50);
 const total = computed(() => tableData.value.length);
@@ -78,8 +58,7 @@ const handleSizeChange = (size: number) => {
     pageSize.value = size;
 }
 
-const handleClick = (row: TableRow) => {
-    console.log('操作按钮点击', row);
+const handleClick = () => {
     window.open('https://xmp.mobvista.com/login', '_blank');
 };
 </script>
