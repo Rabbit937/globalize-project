@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Toys and Games for Children",
+        "describe": "Baby's first digital learning! Tap, swipe, and build those growing brains.",
+        "thumbnailConverUrl": "https:\/\/manage.jiheconnect.com\/global\/mt\/x_v_767cae8261462cd6c5cd0a1c709d7f93.jpg?Expires=1718185401&OSSAccessKeyId=LTAI5t74hGQkFMvFnScM6Btz&Signature=NRw3gfG1n5l2wSvJIcg0qvYy3iI%3D&x-oss-process=image%2Fresize%2Cl_400",
+        "videoUrl": "https:\/\/manage.jiheconnect.com\/global\/mt\/x_v_767cae8261462cd6c5cd0a1c709d7f93.mp4?Expires=1718185401&OSSAccessKeyId=LTAI5t74hGQkFMvFnScM6Btz&Signature=hHWZ4y4eCFTHglO7r9qEW6x6M6k%3D",
+        "width": 360,
+        "height": 640,
+        "materialShape": 2,
+        "findCntSum": 204,
+        "findCnt": 30,
+        "videoTimeSpan": 27,
+        "firstTime": 1700139600000,
+        "lastTime": 1718035200000,
+        "cost": "7133.31",
+        "roi1": "13.60",
+        "roi2": "38.76",
+        "roi3": "49.10",
+        "roi4": "54.13",
+        "roi5": "88.54",
+        "roi6": "118.59",
+        "roi7": "135.32",
+        "roi15": "204.41",
+        "roi30": "300.97",
+        "click": 426178,
+        "show": 4313447,
+        "reg": 5017,
+        "pay": 840,
+        "transform_rate": "92.77",
+        "play3s_rate": "82.04"
+    }
+]

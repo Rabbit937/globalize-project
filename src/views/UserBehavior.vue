@@ -1,5 +1,14 @@
 <template>
-    <div ref="userBehaviorChart" style="width: 100%; height:500px;background-color: #fff"></div>
+    <el-row>
+        <el-col :span="3">
+            <el-menu>
+                
+            </el-menu>
+        </el-col>
+        <el-col :span="21">
+            <div ref="userBehaviorChart" style="width: 100%; height:500px;background-color: #fff"></div>
+        </el-col>
+    </el-row>
 </template>
 
 <script setup lang="ts">

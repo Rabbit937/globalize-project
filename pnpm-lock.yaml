@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  dayjs:
+    specifier: ^1.11.11
+    version: 1.11.11
   echarts:
     specifier: ^5.5.0
     version: 5.5.0
