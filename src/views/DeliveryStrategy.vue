@@ -80,5 +80,6 @@ const handleSizeChange = (size: number) => {
 
 const handleClick = (row: TableRow) => {
     console.log('操作按钮点击', row);
+    window.open('https://xmp.mobvista.com/login', '_blank');
 };
 </script>
