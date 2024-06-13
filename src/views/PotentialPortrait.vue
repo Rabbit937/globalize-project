@@ -31,8 +31,8 @@
                             <div class="pl-16px pt-16px font-size-16px font-bold">
                                 <span>性格偏好</span>
                             </div>
-                            <div class="p-20px">
-                                <img src="../assets/images/xinzuo.webp" alt="">
+                            <div class="p-20px text-center">
+                                <img style="width: 30vw;" src=" ../assets/images/xinzuo.webp" alt="">
                             </div>
                         </div>
                     </el-col>
@@ -82,7 +82,7 @@
                                 <span>社会属性</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">社会属性</p>
+                                <div class="w-100% h-500px" ref="socialAttributeChartsRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -259,6 +259,98 @@ const mediaAttributeEl = ref();
 const scrollToElement = (el: HTMLElement) => {
     el.scrollIntoView({ behavior: 'smooth' });
 };
+
+
+const socialAttributeChartsRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(socialAttributeChartsRef.value);
+
+    const datas = [
+        [
+            { name: '自由职业者', value: 26 },
+            { name: '普通职员', value: 46 },
+            { name: '在校学生', value: 8 },
+            { name: '政府/机关干部/公务员', value: 25 },
+            { name: '老板', value: 15 },
+            { name: '暂无职业', value: 38 },
+            { name: '其他', value: 18 }
+        ],
+        [
+            { name: '广东', value: 38 },
+            { name: '北京', value: 23 },
+            { name: '重庆', value: 22 },
+            { name: '成都', value: 12 },
+            { name: '武汉', value: 10 },
+            { name: '福建', value: 8 },
+            { name: '广西', value: 6 },
+            { name: '其他', value: 4 }
+        ]
+    ];
+
+    const options = {
+        title: {
+            text: '社会属性',
+            left: 'center',
+            textStyle: {
+                color: '#999',
+                fontWeight: 'normal',
+                fontSize: 14
+            },
+            show: false
+        },
+        series: datas.map((data, idx) => {
+            const top = idx * 33.3;
+            return {
+                type: 'pie',
+                radius: [20, 60],
+                top: `${top}%`,
+                height: '33.33%',
+                left: 'center',
+                width: 400,
+                itemStyle: {
+                    borderColor: '#fff',
+                    borderWidth: 1
+                },
+                label: {
+                    alignTo: 'edge',
+                    formatter: '{name|{b}}\n{time|{c} %}',
+                    minMargin: 5,
+                    edgeDistance: 10,
+                    lineHeight: 15,
+                    rich: {
+                        time: {
+                            fontSize: 10,
+                            color: '#999'
+                        }
+                    }
+                },
+                labelLine: {
+                    length: 15,
+                    length2: 0,
+                    maxSurfaceAngle: 80
+                },
+                // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+                labelLayout: (params: any) => {
+                    const isLeft = params.labelRect.x < myChart.getWidth() / 2;
+                    const points = params.labelLinePoints;
+                    // Update the end point.
+                    points[2][0] = isLeft
+                        ? params.labelRect.x
+                        : params.labelRect.x + params.labelRect.width;
+                    return {
+                        labelLinePoints: points
+                    };
+                },
+                data: data
+            };
+        })
+    };
+
+
+    myChart.setOption(options)
+
+})
 </script>
 
 <style scoped>

@@ -46,7 +46,7 @@
                                 <span>下载注册</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">下载注册</p>
+                                <div class="w-100% h-500px" ref="downloadAndRegChartsRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -272,6 +272,98 @@ onMounted(() => {
                     }
                 }
             }
+        ]
+    };
+    myChart.setOption(options)
+})
+
+const downloadAndRegChartsRef = ref();
+
+
+onMounted(() => {
+    const myChart = echarts.init(downloadAndRegChartsRef.value);
+
+
+    const options = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['下载', '注册']
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                mark: { show: true },
+                dataView: { show: true, readOnly: false },
+                magicType: { show: true, type: ['line', 'bar', 'stack'] },
+                restore: { show: true },
+                saveAsImage: { show: true }
+            }
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: { show: false },
+                data: ['2024/01', '2024/02', '2024/03', '2024/04', '2024/05', '2024/06']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+
+            {
+                name: '下载',
+                type: 'bar',
+                label: {
+                    show: true,
+                    position: "insideBottom",
+                    distance: 15,
+                    align: "left",
+                    verticalAlign: "middle",
+                    rotate: 90,
+                    formatter: '{c}  {name|{a}}',
+                    fontSize: 16,
+                    rich: {
+                        name: {}
+                    }
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [394, 434, 583, 337, 552, 362]
+            },
+            {
+                name: '注册',
+                type: 'bar',
+                label: {
+                    show: true,
+                    position: "insideBottom",
+                    distance: 15,
+                    align: "left",
+                    verticalAlign: "middle",
+                    rotate: 90,
+                    formatter: '{c}  {name|{a}}',
+                    fontSize: 16,
+                    rich: {
+                        name: {}
+                    }
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [370, 412, 490, 310, 482, 288]
+            },
+
         ]
     };
     myChart.setOption(options)
