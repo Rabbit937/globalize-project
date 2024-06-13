@@ -42,10 +42,12 @@
                                     </div>
                                 </div>
                                 <div class="content font-size-12px color-[#565f81]">
-                                    <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis">
+                                    <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis cursor-pointer"
+                                        @click="handleClick">
                                         标题 <span class="font-bold">{{ video.title }}</span>
                                     </div>
-                                    <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis">
+                                    <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis cursor-pointer"
+                                        @click="handleClick">
                                         描述 <span>{{ video.describe }}</span>
                                     </div>
 
@@ -197,4 +199,8 @@ const inputVal = ref();
 watchEffect(() => {
     console.log(inputVal.value)
 })
+
+const handleClick = () => {
+    window.open('http://47.243.26.3/', '_blank');
+};
 </script>
