@@ -54,12 +54,12 @@
                     <el-col :span="1.5" class="w-48% p-20px">
                         <div class="w-100% color-[#303133] overflow-hidden "
                             style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
-                            ref="refModeEl">
+                            ref="regModeEl">
                             <div class="pl-16px pt-16px font-size-16px font-bold">
                                 <span>注册方式</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">注册方式</p>
+                                <div class="w-100% h-500px" ref="regModeChartsRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -227,89 +227,53 @@ const clickChartsRef = ref();
 
 onMounted(() => {
     const myChart = echarts.init(clickChartsRef.value);
-    // const options = {
-    //     title: {
-    //         text: '广告点击'
-    //     },
-    //     tooltip: {
-    //         trigger: 'axis'
-    //     },
-    //     legend: {
-    //         data: ['AD85928567', 'AD85924855', 'AD85924852', 'AD85924853', 'AD85924856', 'AD85924857', 'AD85924858', 'AD85924859']
-    //     },
-    //     grid: {
-    //         left: '3%',
-    //         right: '4%',
-    //         bottom: '3%',
-    //         containLabel: true
-    //     },
-    //     toolbox: {
-    //         feature: {
-    //             saveAsImage: {}
-    //         }
-    //     },
-    //     xAxis: {
-    //         type: 'category',
-    //         boundaryGap: false,
-    //         data: ['00:00', '01:15', '02:30', '03:45', '04:20', '05:00', '06:15', '07:30', '08:45', '09:30', '10:00', '11:15', '12:30', '13:45', '14:15', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
-    //     },
-    //     yAxis: {
-    //         type: 'value'
-    //     },
-    //     series: [
-    //         {
-    //             name: 'AD85928567',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [6695, 4021, 5821, 5166, 8350, 3791, 8556, 7360, 1823, 7454, 9965, 8532, 7520, 8033, 3692, 4849, 1162, 7871, 9068, 8938, 9341, 8291, 3859]
-    //         },
-    //         {
-    //             name: 'AD85924855',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [1119, 4867, 7463, 6389, 4553, 1050, 1071, 5467, 7965, 2491, 1013, 3140, 3703, 3305, 3656, 1352, 7534, 7377, 1702, 5208, 9988, 1578, 3110]
-    //         },
-    //         {
-    //             name: 'AD85924852',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [6086, 6560, 9342, 5672, 9943, 7276, 3031, 9779, 3951, 6813, 8226, 7715, 6002, 3163, 5351, 3830, 6279, 9884, 1331, 2312, 7450, 7852, 9688]
-    //         },
-    //         {
-    //             name: 'AD85924853',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [3763, 6656, 5429, 1469, 2918, 5237, 4589, 8769, 1840, 4523, 6120, 7492, 8699, 7257, 7080, 1201, 6135, 8897, 5310, 3949, 4321, 7366, 2999]
-    //         },
-    //         {
-    //             name: 'AD85924856',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [7472, 9315, 9933, 4036, 1456, 6012, 7373, 1568, 7475, 3939, 1827, 8712, 9023, 4718, 5842, 4796, 9894, 7245, 9436, 2592, 4991, 3054, 9757]
-    //         },
-    //         {
-    //             name: 'AD85924857',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [8891, 8264, 7736, 5963, 3795, 1138, 2832, 3050, 3853, 5543, 3350, 5397, 1006, 7107, 3016, 9956, 5919, 8994, 2397, 9457, 4286, 2531, 9524]
-    //         },
-    //         {
-    //             name: 'AD85924858',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [3864, 6604, 6662, 9149, 8742, 7447, 2455, 6349, 2584, 9893, 9761, 1066, 6050, 8101, 2536, 5746, 5698, 9735, 2408, 2772, 7636, 3840, 1105]
-    //         },
-    //         {
-    //             name: 'AD85924859',
-    //             type: 'line',
-    //             stack: 'Total',
-    //             data: [8599, 1711, 9321, 1812, 3942, 2491, 9177, 5564, 4188, 6378, 1400, 8277, 3477, 7793, 9397, 9770, 8935, 4049, 9376, 9930, 6721, 5511, 3356]
-    //         }
-    //     ]
-    // };
-
-
     myChart.setOption(clickAdJson)
+})
 
+
+const regModeChartsRef = ref();
+
+
+onMounted(() => {
+    const myChart = echarts.init(regModeChartsRef.value);
+    const options = {
+        title: {
+            // text: '注册方式',
+            // subtext: 'register',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left'
+        },
+        series: [
+            {
+                name: 'register',
+                type: 'pie',
+                radius: '50%',
+                data: [
+                    { value: 1048, name: '手机号注册' },
+                    { value: 735, name: 'Email' },
+                    { value: 580, name: 'Facebook' },
+                    { value: 439, name: 'Google' },
+                    { value: 484, name: 'Apple' },
+                    { value: 592, name: '微信' },
+                    { value: 788, name: 'QuickReg' },
+                    { value: 89, name: '官网注册' }
+                ],
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(options)
 })
 </script>
