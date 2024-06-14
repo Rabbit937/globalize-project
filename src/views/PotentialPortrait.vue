@@ -32,7 +32,7 @@
                                 <span>性格偏好</span>
                             </div>
                             <div class="p-20px text-center">
-                                <img style="width: 30vw;" src=" ../assets/images/xinzuo.webp" alt="">
+                                <img style="height: 500px;" src=" ../assets/images/xinzuo.webp" alt="">
                             </div>
                         </div>
                     </el-col>
@@ -44,7 +44,7 @@
                                 <span>趣味偏好</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">趣味偏好</p>
+                                <div class="w-100% h-500px" ref="interestPreferenceRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -57,7 +57,7 @@
                                 <span>消费偏好</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">消费偏好</p>
+                                <div class="w-100% h-500px" ref="consumptionPreferenceRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -70,7 +70,7 @@
                                 <span>用户消费价值</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">用户消费价值</p>
+                                <div class="w-100% h-500px" ref="userConsumptionValueRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -94,7 +94,7 @@
                                 <span>媒体属性</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">媒体属性</p>
+                                <div class="w-100% h-500px" ref="mediaAttributeRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -351,8 +351,204 @@ onMounted(() => {
     myChart.setOption(options)
 
 })
-</script>
 
-<style scoped>
-/* 样式根据需要调整 */
-</style>
+
+const interestPreferenceRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(interestPreferenceRef.value);
+
+
+    const categories = ['动作', '冒险', '策略', '角色扮演', '模拟', '体育'];
+    const months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+    const data = [];
+
+    for (let i = 0; i < categories.length; i++) {
+        for (let j = 0; j < months.length; j++) {
+            data.push([j, i, Math.round(Math.random() * 100)]);
+        }
+    }
+
+    // 指定图表的配置项和数据
+    const option = {
+        title: {
+            // text: '玩家趣味偏好热力图'
+        },
+        tooltip: {
+            position: 'top'
+        },
+        grid: {
+            height: '50%',
+            top: '10%'
+        },
+        xAxis: {
+            type: 'category',
+            data: months,
+            splitArea: {
+                show: true
+            }
+        },
+        yAxis: {
+            type: 'category',
+            data: categories,
+            splitArea: {
+                show: true
+            }
+        },
+        visualMap: {
+            min: 0,
+            max: 100,
+            calculable: true,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: '15%'
+        },
+        series: [{
+            name: '用户数量',
+            type: 'heatmap',
+            data: data,
+            label: {
+                show: true
+            },
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    };
+
+
+
+    myChart.setOption(option)
+
+})
+
+
+const consumptionPreferenceRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(consumptionPreferenceRef.value);
+
+
+    const data = [
+        {
+            name: '低消费',
+            children: [
+                { name: '首充', value: Math.round(Math.random() * 100) },
+                { name: '周卡', value: Math.round(Math.random() * 100) },
+                { name: '一次性购买', value: Math.round(Math.random() * 100) },
+                { name: '活动充值', value: Math.round(Math.random() * 100) },
+                { name: '月卡', value: Math.round(Math.random() * 100) }
+            ]
+        },
+        {
+            name: '中消费',
+            children: [
+                { name: '首充', value: Math.round(Math.random() * 100) },
+                { name: '周卡', value: Math.round(Math.random() * 100) },
+                { name: '一次性购买', value: Math.round(Math.random() * 100) },
+                { name: '活动充值', value: Math.round(Math.random() * 100) },
+                { name: '月卡', value: Math.round(Math.random() * 100) }
+            ]
+        },
+        {
+            name: '高消费',
+            children: [
+                { name: '首充', value: Math.round(Math.random() * 100) },
+                { name: '周卡', value: Math.round(Math.random() * 100) },
+                { name: '一次性购买', value: Math.round(Math.random() * 100) },
+                { name: '活动充值', value: Math.round(Math.random() * 100) },
+                { name: '月卡', value: Math.round(Math.random() * 100) }
+            ]
+        }
+    ];
+
+    const option = {
+        title: {
+            // text: '游戏用户消费偏好树图'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}: {c}'
+        },
+        series: [{
+            type: 'treemap',
+            data: data,
+            breadcrumb: {
+                show: false
+            },
+            label: {
+                show: true,
+                formatter: '{b}'
+            }
+        }]
+    };
+
+
+
+    myChart.setOption(option)
+
+})
+
+const userConsumptionValueRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(userConsumptionValueRef.value);
+
+    const options = {
+        title: {
+        },
+        tooltip: {},
+        radar: {
+            indicator: [
+                { name: '装备', max: 100 },
+                { name: '道具', max: 100 },
+                { name: '礼包', max: 100 },
+                { name: 'VIP', max: 100 }
+            ]
+        },
+        series: [{
+            type: 'radar',
+            data: [
+                {
+                    value: [80, 50, 70, 90],
+                    name: '用户'
+                },
+            ]
+        }]
+    };
+
+    myChart.setOption(options)
+})
+
+
+
+const mediaAttributeRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(mediaAttributeRef.value);
+
+    // 生成随机数据
+    function randomData() {
+        return Math.round(Math.random() * 1000);
+    }
+
+    const option = {
+        series: {
+            type: 'funnel',
+            data: [
+                { name: '游戏社区参与度', value: randomData() },
+                { name: '游戏类型偏好', value: randomData() },
+                { name: '游戏内容创作', value: randomData() },
+                { name: '游戏相关兴趣', value: randomData() },
+                { name: '社交互动方式', value: randomData() }
+            ]
+        }
+    };
+    myChart.setOption(option)
+})
+
+
+</script>

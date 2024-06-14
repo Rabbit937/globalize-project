@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于漏斗图生成数据示例</title>
+    <!-- 引入ECharts库 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 容器用于放置图表 -->
+    <div id="main" style="width: 800px;height:600px;"></div>
+
+    <script>
+        // 初始化图表
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 生成随机数据
+        function randomData() {
+            return Math.round(Math.random() * 1000);
+        }
+
+        // 图表配置
+        var option = {
+            series: {
+                type: 'funnel',
+                data: [
+                    { name: '游戏社区参与度', value: randomData() },
+                    { name: '游戏类型偏好', value: randomData() },
+                    { name: '游戏内容创作', value: randomData() },
+                    { name: '游戏相关兴趣', value: randomData() },
+                    { name: '社交互动方式', value: randomData() }
+                ]
+            }
+        };
+
+        // 使用配置项显示图表
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
