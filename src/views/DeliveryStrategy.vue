@@ -3,7 +3,7 @@
         <el-col class="w-100%">
             <el-table :data="paginatedData"
                 style="width:100%;min-height:300px;max-height: 800px;height: calc(100vh - 120px);" border>
-                <el-table-column prop="material_id" label="素材ID"></el-table-column>
+                <el-table-column prop="material_id" label="策略ID"></el-table-column>
                 <el-table-column prop="fistroi" label="预估首日ROI"></el-table-column>
                 <el-table-column prop="area" label="区域"></el-table-column>
                 <el-table-column prop="age" label="年龄"></el-table-column>

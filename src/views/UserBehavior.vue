@@ -108,7 +108,7 @@
                                 <span>客诉交互</span>
                             </div>
                             <div class="w-100%">
-                                <img class="w-80%" src="../assets/images/kesu.jpg" alt="">
+                                <img class="w-100%" src="../assets/images/kesu.jpg" alt="">
                             </div>
                         </div>
                     </el-col>
