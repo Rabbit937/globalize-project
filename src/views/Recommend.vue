@@ -215,6 +215,6 @@ watchEffect(() => {
 })
 
 const handleClick = () => {
-    window.open('http://47.243.26.3/', '_blank');
+    window.open('http://cas.jiheconnect.com/', '_blank');
 };
 </script>

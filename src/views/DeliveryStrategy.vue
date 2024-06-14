@@ -59,6 +59,6 @@ const handleSizeChange = (size: number) => {
 }
 
 const handleClick = () => {
-    window.open('https://xmp.mobvista.com/login', '_blank');
+    window.open('https://xmp.jiheconnect.com/overview', '_blank');
 };
 </script>

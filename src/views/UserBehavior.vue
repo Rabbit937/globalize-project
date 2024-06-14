@@ -72,7 +72,7 @@
                                 <span>频繁活跃</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">频繁活跃</p>
+                                <div class="w-100% h-500px" ref="frequentlyActiveRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -84,7 +84,7 @@
                                 <span>付费偏好</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">付费偏好</p>
+                                <div class="w-100% h-500px" ref="paymentPreferenceRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -96,7 +96,7 @@
                                 <span>人际社交</span>
                             </div>
                             <div class="p-20px">
-                                <p v-for="o in 4" :key="o" class="text item">人际社交</p>
+                                <div class="w-100% h-500px" ref="socialInteractionRef"></div>
                             </div>
                         </div>
                     </el-col>
@@ -368,4 +368,185 @@ onMounted(() => {
     };
     myChart.setOption(options)
 })
+
+
+const frequentlyActiveRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(frequentlyActiveRef.value);
+
+
+    // 配置图表的数据
+    // const data = [
+    //     [0, 0, 10], [0, 1, 20], [0, 2, 30], [0, 3, 40], [0, 4, 50],
+    //     [1, 0, 15], [1, 1, 25], [1, 2, 35], [1, 3, 45], [1, 4, 55],
+    //     // 添加更多数据...
+    // ];
+
+
+    const data = [];
+    const days = ['周一', '周二', '周三', '周四', '周五'];
+    const times = ['早上', '中午', '下午', '晚上', '深夜'];
+
+    for (let i = 0; i < days.length; i++) {
+        for (let j = 0; j < times.length; j++) {
+            const activityLevel = Math.floor(Math.random() * 60); // 随机生成活跃度数据
+            data.push([i, j, activityLevel]);
+        }
+    }
+
+
+
+    const options = {
+        tooltip: {
+            position: 'top'
+        },
+        xAxis: {
+            type: 'category',
+            data: ['周一', '周二', '周三', '周四', '周五']
+        },
+        yAxis: {
+            type: 'category',
+            data: ['早上', '中午', '下午', '晚上', '深夜']
+        },
+        visualMap: {
+            min: 0,
+            max: 60,
+            calculable: true,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: '15%'
+        },
+        series: [{
+            name: '用户活跃度',
+            type: 'heatmap',
+            data: data,
+            label: {
+                show: true
+            },
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    };
+
+
+
+    myChart.setOption(options)
+
+})
+
+const paymentPreferenceRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(paymentPreferenceRef.value);
+
+    const options = {// 配置雷达图的数据
+        title: {
+            // text: '游戏付费偏好维度分析'
+        },
+        tooltip: {},
+        radar: {
+            indicator: [
+                { name: '游戏类型偏好' },
+                { name: '付费频率' },
+                { name: '付费金额' },
+                { name: '付费项目' },
+                { name: '付费渠道' },
+                { name: '付费动机' },
+                { name: '付费时段' },
+                { name: '付费历史' }
+            ]
+        },
+        series: [{
+            type: 'radar',
+            data: [
+                {
+                    value: [80, 70, 60, 50, 40, 30, 20, 10],
+                    name: '玩家A'
+                },
+                {
+                    value: [60, 50, 40, 30, 20, 10, 70, 80],
+                    name: '玩家B'
+                }
+            ]
+        }]
+    }
+
+    myChart.setOption(options)
+})
+
+
+// 人际社交
+const socialInteractionRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(socialInteractionRef.value);
+
+    // 随机生成节点数据
+    const players = [];
+    for (let i = 1; i <= 50; i++) {
+        players.push({
+            name: `玩家${i}`,
+            value: Math.floor(Math.random() * 100)
+        });
+    }
+
+    // 随机生成关系数据
+    const links = [];
+    for (let i = 0; i < 100; i++) {
+        const sourceIndex = Math.floor(Math.random() * 50);
+        const targetIndex = Math.floor(Math.random() * 50);
+        if (sourceIndex !== targetIndex) {
+            links.push({
+                source: players[sourceIndex].name,
+                target: players[targetIndex].name
+            });
+        }
+    }
+
+    // 指定图表的配置项和数据
+    const option = {
+        title: {
+            text: '玩家社交关系图'
+        },
+        tooltip: {},
+        series: [
+            {
+                type: 'graph',
+                layout: 'force',
+                symbolSize: 30,
+                roam: true,
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                force: {
+                    repulsion: 200,
+                    edgeLength: [50, 100]
+                },
+                edgeSymbol: ['none', 'arrow'],
+                edgeSymbolSize: [4, 10],
+                edgeLabel: {
+                    fontSize: 12
+                },
+                data: players,
+                links: links,
+                lineStyle: {
+                    opacity: 0.9,
+                    width: 2,
+                    curveness: 0.3
+                }
+            }
+        ]
+    };
+
+    // 使用配置项显示关系图
+    myChart.setOption(option);
+
+})
+
 </script>
