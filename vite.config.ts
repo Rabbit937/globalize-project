@@ -21,4 +21,14 @@ export default defineConfig({
     }),
   ],
 
+  server: {
+    proxy: {
+      "/api": {
+        changeOrigin: true,
+        target: "https://manage.jiheconnect.com",
+        rewrite: (path) => path.replace('/api', '')
+      }
+    }
+  }
+
 })

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>八卦图布局</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff;
+            margin: 0;
+        }
+
+        #main {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        var chart = echarts.init(document.getElementById('main'));
+
+        var option = {
+            backgroundColor: '#fff',
+            title: {
+                text: '八卦图',
+                left: 'center',
+                textStyle: {
+                    color: 'black',
+                    fontSize: 24
+                }
+            },
+            series: [
+                {
+                    type: 'pie',
+                    radius: ['60%', '65%'],
+                    silent: false,
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{b}',
+                        color: 'white',
+                        fontSize: 16,
+                        backgroundColor: function (params) {
+                            return params.color;
+                        },
+                        padding: [2, 5]
+                    },
+                    itemStyle: {
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    data: [
+                        { value: 1, name: '乾', itemStyle: { color: '#FFD700' } },
+                        { value: 1, name: '兑', itemStyle: { color: '#FF8C00' } },
+                        { value: 1, name: '离', itemStyle: { color: '#FF4500' } },
+                        { value: 1, name: '震', itemStyle: { color: '#8A2BE2' } },
+                        { value: 1, name: '巽', itemStyle: { color: '#7FFF00' } },
+                        { value: 1, name: '坎', itemStyle: { color: '#1E90FF' } },
+                        { value: 1, name: '艮', itemStyle: { color: '#8B4513' } },
+                        { value: 1, name: '坤', itemStyle: { color: '#2E8B57' } }
+                    ]
+                },
+                {
+                    type: 'pie',
+                    radius: ['50%', '55%'],
+                    silent: false,
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{b}',
+                        color: 'white',
+                        fontSize: 14,
+                        backgroundColor: function (params) {
+                            return params.color;
+                        },
+                        padding: [2, 5]
+                    },
+                    itemStyle: {
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    data: [
+                        { value: 1, name: '天', itemStyle: { color: '#FFD700' } },
+                        { value: 1, name: '泽', itemStyle: { color: '#FF8C00' } },
+                        { value: 1, name: '火', itemStyle: { color: '#FF4500' } },
+                        { value: 1, name: '雷', itemStyle: { color: '#8A2BE2' } },
+                        { value: 1, name: '风', itemStyle: { color: '#7FFF00' } },
+                        { value: 1, name: '水', itemStyle: { color: '#1E90FF' } },
+                        { value: 1, name: '山', itemStyle: { color: '#8B4513' } },
+                        { value: 1, name: '地', itemStyle: { color: '#2E8B57' } }
+                    ]
+                },
+                {
+                    type: 'pie',
+                    radius: ['40%', '45%'],
+                    silent: false,
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{b}',
+                        color: 'white',
+                        fontSize: 12,
+                        backgroundColor: function (params) {
+                            return params.color;
+                        },
+                        padding: [2, 5]
+                    },
+                    itemStyle: {
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    data: [
+                        { value: 1, name: '甲', itemStyle: { color: '#FFD700' } },
+                        { value: 1, name: '乙', itemStyle: { color: '#FF8C00' } },
+                        { value: 1, name: '丙', itemStyle: { color: '#FF4500' } },
+                        { value: 1, name: '丁', itemStyle: { color: '#8A2BE2' } },
+                        { value: 1, name: '戊', itemStyle: { color: '#7FFF00' } },
+                        { value: 1, name: '己', itemStyle: { color: '#1E90FF' } },
+                        { value: 1, name: '庚', itemStyle: { color: '#8B4513' } },
+                        { value: 1, name: '辛', itemStyle: { color: '#2E8B57' } }
+                    ]
+                },
+                {
+                    type: 'pie',
+                    radius: ['30%', '35%'],
+                    silent: false,
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{b}',
+                        color: 'white',
+                        fontSize: 10,
+                        backgroundColor: function (params) {
+                            return params.color;
+                        },
+                        padding: [2, 5]
+                    },
+                    itemStyle: {
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    data: [
+                        { value: 1, name: '子', itemStyle: { color: '#FFD700' } },
+                        { value: 1, name: '丑', itemStyle: { color: '#FF8C00' } },
+                        { value: 1, name: '寅', itemStyle: { color: '#FF4500' } },
+                        { value: 1, name: '卯', itemStyle: { color: '#8A2BE2' } },
+                        { value: 1, name: '辰', itemStyle: { color: '#7FFF00' } },
+                        { value: 1, name: '巳', itemStyle: { color: '#1E90FF' } },
+                        { value: 1, name: '午', itemStyle: { color: '#8B4513' } },
+                        { value: 1, name: '未', itemStyle: { color: '#2E8B57' } }
+                    ]
+                },
+                {
+                    type: 'pie',
+                    radius: ['0%', '25%'],
+                    silent: false,
+                    label: {
+                        show: false
+                    },
+                    data: [
+                        { value: 1, name: 'yin', itemStyle: { color: 'black' } },
+                        { value: 1, name: 'yang', itemStyle: { color: 'white' } }
+                    ]
+                },
+                {
+                    type: 'pie',
+                    radius: ['5%', '10%'],
+                    silent: true,
+                    label: {
+                        show: false
+                    },
+                    data: [
+                        { value: 1, name: 'yin-dot', itemStyle: { color: 'white' } },
+                        { value: 1, name: 'yang-dot', itemStyle: { color: 'black' } }
+                    ]
+                }
+            ]
+        };
+
+        chart.setOption(option);
+
+        chart.on('click', function (params) {
+            alert('你点击了' + params.name);
+        });
+    </script>
+</body>
+
+</html>
