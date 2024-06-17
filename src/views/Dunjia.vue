@@ -317,15 +317,7 @@ const enterPayOverview = () => {
     router.push('/payoverview')
 }
 
-const enterPayLog = () => {
-    router.push('/paylog')
-}
 
-
-const enterLoginLog = () => {
-    router.push('/loginlog')
-
-}
 
 
 

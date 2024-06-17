@@ -50,7 +50,6 @@ import { zhCn } from "element-plus/es/locales.mjs"
 import dayjs from 'dayjs'
 
 import projectJson from '../data/project.json'
-import mediaChannel from '../data/mediaChannel.json'
 import osJson from '../data/os.json'
 
 

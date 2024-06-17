@@ -32,7 +32,7 @@
     <el-row class="p-8px">
         <el-scrollbar style="width:100%;min-height:300px;max-height: 800px;height: calc(100vh - 120px - 50px);">
             <ul class="flex flex-wrap p-0px overflow-auto" v-loading="loading">
-                <li class="w-260px list-none mr-12px mb-12px" v-for="(video, index) in paginatedData"
+                <li class="w-260px list-none mr-12px mb-12px" v-for="(video) in paginatedData"
                     :key="video.title">
                     <div
                         class="card w-100% border border-gray-300 rounded-lg overflow-hidden  font-sans border-style-solid">
@@ -132,7 +132,7 @@ const onClickOutside = () => {
 const router = useRouter();
 
 const videoElRef = ref<HTMLVideoElement[]>();
-const buttonElRef = ref<HTMLButtonElement[]>();
+/* const buttonElRef = ref<HTMLButtonElement[]>();
 
 const playVideo = (videoElRef: HTMLVideoElement[] | undefined, buttonElRef: HTMLButtonElement[] | undefined, index: number) => {
 
@@ -159,7 +159,7 @@ const playVideo = (videoElRef: HTMLVideoElement[] | undefined, buttonElRef: HTML
     } else {
         console.error('没有video对象')
     }
-}
+} */
 
 
 const videosRef = ref(videos);

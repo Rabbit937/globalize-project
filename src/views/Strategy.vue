@@ -61,7 +61,6 @@ import { zhCn } from "element-plus/es/locales.mjs"
 import dayjs from 'dayjs'
 
 import projectJson from '../data/project.json'
-import mediaChannel from '../data/mediaChannel.json'
 import osJson from '../data/os.json'
 
 
@@ -123,7 +122,7 @@ const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     }
 }
 
-const shortcuts = [
+/* const shortcuts = [
     {
         text: '近一周',
         value: () => {
@@ -151,7 +150,7 @@ const shortcuts = [
             return [start, end]
         },
     },
-]
+] */
 
 const loading = ref(false);
 
