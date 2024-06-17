@@ -39,6 +39,11 @@
             <el-table :data="tableData" border style="width: 100% ;height:calc(100vh - 150px);" v-loading="loading">
                 <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" :width="200"
                     align="center" />
+                <el-table-column label="操作" width="240">
+                    <template #default>
+                        <el-button type="primary" @click="handleClick">立即创建广告</el-button>
+                    </template>
+                </el-table-column>
             </el-table>
             <el-config-provider :locale="zhCn">
                 <el-pagination class="mt-10px" v-model:current-page="currentPage" v-model:page-size="pageSize"
@@ -71,7 +76,7 @@ const origin = {
     STRATEGY: "用户定向",
     VALUE: "预估价值(元)",
     PRICE: "出价(元)",
-    BTN: "立即创建广告",
+    // BTN: "立即创建广告",
 }
 
 
@@ -198,6 +203,10 @@ const handleSizeChange = (size: number) => {
     getAdOverviewFunc(options)
 }
 
+
+const handleClick = () => {
+    window.open('https://xmp.jiheconnect.com/overview', '_blank');
+};
 
 
 </script>

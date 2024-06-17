@@ -110,23 +110,19 @@
                     <template #title>
                         <span>活跃</span>
                     </template>
-                    <el-menu-item @click="enterLoginLog">
+                    <el-menu-item @click="router.push('/loginlog')">
                         <span>登录时间</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterLoginLog">
-
+                    <el-menu-item @click="router.push('/zhuxianlog')">
                         <span>主线进程</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterLoginLog">
-
+                    <el-menu-item @click="router.push('/fubenlog')">
                         <span>副玩法进程</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterLoginLog">
-
+                    <el-menu-item @click="router.push('/hexindaojulog')">
                         <span>核心道具获取</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterLoginLog">
-
+                    <el-menu-item @click="router.push('/hexindhuzhichengzhanglog')">
                         <span>核心数值成长</span>
                     </el-menu-item>
                 </el-sub-menu>
@@ -139,22 +135,22 @@
                     <template #title>
                         <span>付费</span>
                     </template>
-                    <el-menu-item @click="enterPayLog">
+                    <el-menu-item @click="router.push('/paylog')">
                         <span>支付习惯</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterPayLog">
+                    <el-menu-item @click="router.push('/paytimelog')">
                         <span>支付时间</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterPayLog">
+                    <el-menu-item @click="router.push('/daymoneylog')">
                         <span>日均金额</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterPayLog">
+                    <el-menu-item @click="router.push('/monthmoneylog')">
                         <span>月均金额</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterPayLog">
+                    <el-menu-item @click="router.push('/dangweimoneylog')">
                         <span>档位购买习惯</span>
                     </el-menu-item>
-                    <el-menu-item @click="enterPayLog">
+                    <el-menu-item @click="router.push('/huodongcanyulog')">
                         <span>活动推送参与</span>
                     </el-menu-item>
                 </el-sub-menu>
