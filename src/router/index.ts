@@ -58,9 +58,68 @@ const router = createRouter({
         },
 
         {
+            path: "/paytimelog",
+            name: "PayTimeLog",
+            component: () => import('../views/PayTimeLog.vue')
+        },
+
+        {
+            path: "/daymoneylog",
+            name: "DayMoneyLog",
+            component: () => import('../views/DayMoneyLog.vue')
+        },
+
+        {
+            path: "/monthmoneylog",
+            name: "MonthMoneyLog",
+            component: () => import('../views/MonthMoneyLog.vue')
+        },
+
+
+        {
+            path: "/dangweimoneylog",
+            name: "DangWeiMoneyLog",
+            component: () => import('../views/DangWeiMoneyLog.vue')
+        },
+
+        {
+            path: "/huodongcanyulog",
+            name: "HuoDongCanYuLog",
+            component: () => import('../views/HuoDongCanYuLog.vue')
+        },
+
+        {
             path: "/loginlog",
             name: "LoginLog",
             component: () => import('../views/LoginLog.vue')
+        },
+
+
+        {
+            path: "/zhuxianlog",
+            name: "ZhuXianLog",
+            component: () => import('../views/ZhuXianLog.vue')
+        },
+
+
+        {
+            path: "/fubenlog",
+            name: "FuBenLog",
+            component: () => import('../views/FuBenLog.vue')
+        },
+
+
+        {
+            path: "/hexindaojulog",
+            name: "HeXinDaoJuLog",
+            component: () => import('../views/HeXinDaoJuLog.vue')
+        },
+
+
+        {
+            path: "/hexindhuzhichengzhanglog",
+            name: "HeXinShuZhiChengZhangLog",
+            component: () => import('../views/HeXinShuZhiChengZhangLog.vue')
         },
 
         {

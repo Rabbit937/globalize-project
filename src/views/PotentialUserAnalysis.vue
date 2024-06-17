@@ -1,9 +1,9 @@
 <template>
-    <el-row>
+    <el-row style="background-color: #fff;">
         <el-col :span="16">
-            <div class="w-100% flex flex-wrap">
-                <div class="w-45% color-[#303133] overflow-hidden m-1vw"
-                    style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+            <div class="w-100% flex flex-wrap h-100%">
+                <div class="w-46%  color-[#303133] overflow-hidden m-1vw"
+                    style="background-color: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                     ref="regModeEl">
                     <div class="pl-16px pt-16px font-size-16px font-bold">
                         <span>注册方式</span>
@@ -12,8 +12,8 @@
                         <div class="w-100% h-300px" ref="regModeChartsRef"></div>
                     </div>
                 </div>
-                <div class="w-45% color-[#303133] overflow-hidden m-1vw"
-                    style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                <div class="w-46% color-[#303133] overflow-hidden m-1vw"
+                    style="background-color: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                     ref="frequentlyActiveEl">
                     <div class="pl-16px pt-16px font-size-16px font-bold">
                         <span>频繁活跃</span>
@@ -22,8 +22,8 @@
                         <div class="w-100% h-300px" ref="frequentlyActiveRef"></div>
                     </div>
                 </div>
-                <div class="w-45% color-[#303133] overflow-hidden m-1vw"
-                    style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                <div class="w-46% color-[#303133] overflow-hidden m-1vw"
+                    style="background-color: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
                     ref="socialInteractionEl">
                     <div class="pl-16px pt-16px font-size-16px font-bold">
                         <span>人际社交</span>
@@ -33,14 +33,15 @@
                     </div>
                 </div>
 
-                <div class="w-45% color-[#303133] overflow-hidden m-1vw"
-                    style="box-shadow: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
-                    ref="customerComplaintEl">
+
+                <div class="w-46% color-[#303133] overflow-hidden m-1vw"
+                    style="background-color: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                    ref="socialInteractionEl">
                     <div class="pl-16px pt-16px font-size-16px font-bold">
-                        <span>客诉交互</span>
+                        <span>消费偏好</span>
                     </div>
-                    <div class="w-100%">
-                        <img class="w-100%" src="../assets/images/kesu.jpg" alt="">
+                    <div class="p-20px">
+                        <div class="w-100% h-300px" ref="consumptionPreferenceRef"></div>
                     </div>
                 </div>
 
@@ -48,7 +49,19 @@
 
         </el-col>
         <el-col :span="8">
-
+            <div class="w-100% flex flex-wrap h-100% mt-1vw mr-1vw"
+                style="width:calc(100% - 1vw); height:calc(100% - 2vw);">
+                <div class="w-100% h-100% color-[#303133] overflow-hidden "
+                    style="background-color: 0px 0px 12px rgba(0,0,0,0.12); background-color: #fff;border: 1px solid #e4e7ed;border-radius: 4px;transition:0.3;"
+                    ref="customerComplaintEl">
+                    <div class="pl-16px pt-16px font-size-16px font-bold">
+                        <span></span>
+                    </div>
+                    <div class="w-100% h-100%">
+                        <div class="w-100% h-100%" ref="customerComplaintRef"></div>
+                    </div>
+                </div>
+            </div>
         </el-col>
     </el-row>
 </template>
@@ -57,6 +70,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import * as echarts from 'echarts';
+
+import graph from '../data/graph.json'
+
 
 const regModeChartsRef = ref();
 
@@ -158,7 +174,6 @@ onMounted(() => {
 
 })
 
-
 // 人际社交
 const socialInteractionRef = ref();
 
@@ -225,6 +240,126 @@ onMounted(() => {
 
     // 使用配置项显示关系图
     myChart.setOption(option);
+
+})
+
+
+const customerComplaintRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(customerComplaintRef.value);
+
+
+
+    // 指定图表的配置项和数据
+    const option = {
+        tooltip: {},
+        legend: [
+            {
+                data: graph.categories.map((a) => {
+                    return a.name;
+                })
+            }
+        ],
+        series: [
+            {
+                name: 'Les Miserables',
+                type: 'graph',
+                layout: 'none',
+                data: graph.nodes,
+                links: graph.links,
+                categories: graph.categories,
+                roam: true,
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{b}'
+                },
+                labelLayout: {
+                    hideOverlap: true
+                },
+                scaleLimit: {
+                    min: 0.4,
+                    max: 2
+                },
+                lineStyle: {
+                    color: 'source',
+                    curveness: 0.3
+                }
+            }
+        ]
+    };
+
+    // 使用配置项显示关系图
+    myChart.setOption(option);
+
+})
+
+
+const consumptionPreferenceRef = ref();
+
+onMounted(() => {
+    const myChart = echarts.init(consumptionPreferenceRef.value);
+
+
+    const data = [
+        {
+            name: '低消费',
+            children: [
+                { name: '首充', value: Math.round(Math.random() * 100) },
+                { name: '周卡', value: Math.round(Math.random() * 100) },
+                { name: '一次性购买', value: Math.round(Math.random() * 100) },
+                { name: '活动充值', value: Math.round(Math.random() * 100) },
+                { name: '月卡', value: Math.round(Math.random() * 100) }
+                
+            ]
+        },
+        // {
+        //     name: '中消费',
+        //     children: [
+        //         { name: '首充', value: Math.round(Math.random() * 100) },
+        //         { name: '周卡', value: Math.round(Math.random() * 100) },
+        //         { name: '一次性购买', value: Math.round(Math.random() * 100) },
+        //         { name: '活动充值', value: Math.round(Math.random() * 100) },
+        //         { name: '月卡', value: Math.round(Math.random() * 100) }
+        //     ]
+        // },
+        // {
+        //     name: '高消费',
+        //     children: [
+        //         { name: '首充', value: Math.round(Math.random() * 100) },
+        //         { name: '周卡', value: Math.round(Math.random() * 100) },
+        //         { name: '一次性购买', value: Math.round(Math.random() * 100) },
+        //         { name: '活动充值', value: Math.round(Math.random() * 100) },
+        //         { name: '月卡', value: Math.round(Math.random() * 100) }
+        //     ]
+        // }
+    ];
+
+    const option = {
+        title: {
+            // text: '游戏用户消费偏好树图'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}: {c}'
+        },
+        series: [{
+            type: 'treemap',
+            data: data,
+            breadcrumb: {
+                show: false
+            },
+            label: {
+                show: true,
+                formatter: '{b}'
+            }
+        }]
+    };
+
+
+
+    myChart.setOption(option)
 
 })
 </script>

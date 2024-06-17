@@ -3,14 +3,29 @@
         <el-col :span="1.5" class="flex flex-wrap">
             <el-col :span="1.5" class="mr-4 mb-10px">
                 <el-select placeholder="请选择项目" style="width: 240px" v-model="options.projectId">
-                    <el-option v-for="(value, key) in projectJson" :key="key" :label="value" :value="key" />
+                    <el-option v-for="(item, key) in projectJson" :key="key" :label="item" :value="key" />
                 </el-select>
             </el-col>
+            <!-- <el-col :span="1.5" class="mr-4 mb-10px">
+                <el-date-picker v-model="datePickerValue" type="daterange" unlink-panels range-separator="To"
+                    start-placeholder="开始日期" end-placeholder="结束日期" :shortcuts="shortcuts" />
+            </el-col> -->
+            <!-- <el-col :span="1.5" class="mr-4 mb-10px">
+                <el-select placeholder="请选择媒体渠道" v-model="options.chId" style="width: 240px">
+                    <el-option v-for="(item, key) in mediaChannel" :key="key" :label="item" :value="key" />
+                </el-select>
+            </el-col> -->
             <el-col :span="1.5" class="mr-4 mb-10px">
                 <el-input placeholder="请输入预估价值(元)" v-model="options.value" style="width: 240px" />
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
                 <el-input placeholder="请输入用户定向标签" v-model="options.tag" style="width: 240px" />
+            </el-col>
+
+            <el-col :span="1.5" class="mr-4 mb-10px">
+                <el-select placeholder="请选择平台" v-model="options.os" style="width: 240px">
+                    <el-option v-for="(item, key) in osJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5">
                 <el-button @click="handleSearch">搜索</el-button>
@@ -21,10 +36,10 @@
 
     <el-row class="px-16px">
         <el-col>
-            <el-table :data="tableData" border style="width: 100% ;height:500px;" v-loading="loading">
-                <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" />
+            <el-table :data="tableData" border style="width: 100% ;height:calc(100vh - 150px);" v-loading="loading">
+                <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" :width="200"
+                    align="center" />
             </el-table>
-
             <el-config-provider :locale="zhCn">
                 <el-pagination class="mt-10px" v-model:current-page="currentPage" v-model:page-size="pageSize"
                     :page-sizes="[10, 20, 50, 100]" background layout="total, sizes, prev, pager, next, jumper"
@@ -38,47 +53,60 @@
 import axios from 'axios';
 import { ref, onMounted, reactive, watchEffect } from 'vue';
 import { zhCn } from "element-plus/es/locales.mjs"
-import projectJson from "../data/project.json"
+import dayjs from 'dayjs'
 
-const currentPage = ref(1);
-const pageSize = ref(20);
-const total = ref();
+import projectJson from '../data/project.json'
+import mediaChannel from '../data/mediaChannel.json'
+import osJson from '../data/os.json'
+
+
 
 const origin = {
-    ID: "策略ID",
-    STRATEGY: "用户定向标签",
+    ID: "策略回调",
+    AGE: "年龄",
+    XINGBIE: "性别",
+    NET: "网络",
+    DEVICE_PRICE: "设备价格",
+    TIME: "投放时间段",
+    STRATEGY: "用户定向",
     VALUE: "预估价值(元)",
     PRICE: "出价(元)",
+    BTN: "立即创建广告",
 }
 
+
 const tableData = ref([]);
+const currentPage = ref(1);
+const pageSize = ref(20);
+const total = ref(0);
 
 onMounted(() => {
     getAdOverviewFunc();
 })
 
-
 interface IGetAdOverview {
-    projectId?: string;
-    value?: string;
-    tag?: string;
+    sdate: string;
+    edate: string;
+    chId: string;
+    pitId: string;
+    advId: string;
+    adcountry: string;
+    adtype: string;
+    adtarget: string;
+    os: string;
     page?: number;
     num?: number;
+    xuguan: string;
+    cycle: string;
+    money: string;
+    value: string;
+    tag: string
 }
 
 const getAdOverviewFunc = async (options?: IGetAdOverview) => {
-
-    console.log(options)
-
     loading.value = true;
     const res = await axios({
-        url: "/api/glo_api/_strategy", method: 'get', params: {
-            tag: options?.tag,
-            projectId: options?.projectId,
-            value: options?.value,
-            page: options?.page,
-            num: options?.num
-        }
+        url: "/api/glo_api/_strategy", method: 'get', params: options
     })
 
     if (res.status === 200) {
@@ -90,36 +118,86 @@ const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     }
 }
 
-const loading = ref(false);
+const shortcuts = [
+    {
+        text: '近一周',
+        value: () => {
+            const end = new Date()
+            const start = new Date()
+            start.setDate(start.getDate() - 7)
+            return [start, end]
+        },
+    },
+    {
+        text: '近一个月',
+        value: () => {
+            const end = new Date()
+            const start = new Date()
+            start.setMonth(start.getMonth() - 1)
+            return [start, end]
+        },
+    },
+    {
+        text: '近三个月',
+        value: () => {
+            const end = new Date()
+            const start = new Date()
+            start.setMonth(start.getMonth() - 3)
+            return [start, end]
+        },
+    },
+]
 
+const loading = ref(false);
 
 const options = reactive({
     projectId: '',
+    sdate: "",
+    edate: "",
+    chId: "",
+    pitId: "",
+    advId: "",
+    adcountry: "",
+    adtype: "",
+    adtarget: "",
+    os: "",
+    page: currentPage.value,
+    num: pageSize.value,
+    xuguan: "",
+    cycle: "",
+    money: "",
     value: "",
     tag: ""
 })
 
+
+const datePickerValue = ref();
+
+watchEffect(() => {
+
+    if (datePickerValue.value) {
+        const [sdate, edate] = datePickerValue.value;
+        options.sdate = dayjs(sdate).format('YYYY-MM-DD');
+        options.edate = dayjs(edate).format('YYYY-MM-DD');
+    }
+
+})
 
 const handleSearch = () => {
     getAdOverviewFunc(options)
 }
 
 
-watchEffect(() => {
-    getAdOverviewFunc({
-        page: currentPage.value,
-        num: pageSize.value
-    })
-})
-
-
 const handlePageChange = (page: number) => {
-    currentPage.value = page;
+    options.page = page;
+    getAdOverviewFunc(options)
 };
 
 const handleSizeChange = (size: number) => {
-    pageSize.value = size;
+    options.num = size;
+    getAdOverviewFunc(options)
 }
+
 
 
 </script>

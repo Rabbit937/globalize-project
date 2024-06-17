@@ -11,27 +11,13 @@
                     start-placeholder="开始日期" end-placeholder="结束日期" :shortcuts="shortcuts" />
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择支付渠道" v-model="options.chId" style="width: 240px">
-                    <el-option v-for="(item, key) in paymentChannel" :key="key" :label="item" :value="key" />
+                <el-select placeholder="请选择媒体渠道" v-model="options.chId" style="width: 240px">
+                    <el-option v-for="(item, key) in mediaChannel" :key="key" :label="item" :value="key" />
                 </el-select>
             </el-col>
+
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择支付习惯" v-model="options.xuguan" style="width: 240px">
-                    <el-option v-for="(item, key) in paymentHabit" :key="key" :label="item" :value="key" />
-                </el-select>
-            </el-col>
-            <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择周期" style="width: 240px" v-model="options.cycle">
-                    <el-option v-for="(item, key) in CycleJson" :key="key" :label="item" :value="key" />
-                </el-select>
-            </el-col>
-            <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择付费档位" style="width: 240px" v-model="options.money">
-                    <el-option v-for="(item, key) in PayStallJson" :key="key" :label="item" :value="key" />
-                </el-select>
-            </el-col>
-            <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择平台" style="width: 240px" v-model="options.os">
+                <el-select placeholder="请选择平台" v-model="options.os" style="width: 240px">
                     <el-option v-for="(item, key) in osJson" :key="key" :label="item" :value="key" />
                 </el-select>
             </el-col>
@@ -64,43 +50,20 @@ import { zhCn } from "element-plus/es/locales.mjs"
 import dayjs from 'dayjs'
 
 import projectJson from '../data/project.json'
-import paymentChannel from '../data/PaymentChannel.json'
-import paymentHabit from '../data/PaymentHabit.json'
-import CycleJson from '../data/Cycle.json'
-import PayStallJson from '../data/PayStall.json'
+import mediaChannel from '../data/mediaChannel.json'
 import osJson from '../data/os.json'
 
 
 
 const origin = {
-    PGIDNAME: "父游戏",
-    GID: "游戏",
+    PID: "渠道",
+    GID: "游戏ID",
+    PGID: "项目ID",
+    REFER: "广告ID",
     OS: "平台",
-    PARTNER: "媒体渠道",
-    CID: "渠道号",
-    REFER: "REFER",
-    UNAME: "帐号",
-    UID: "UID",
-    DSID: "服",
-    DRID: "角色ID",
-    DRNAME: "角色名称",
-    PAID: "收款帐号",
-    PWAY: "支付方式",
-    DMONEY: "CP金额",
-    MONEY: "下单金额",
-    EXT1: "礼包名称",
-    DUID: "设备号",
-    IP: "IP",
-    PROVINCE: "城市",
-    BOID: "银行流水号",
-    UUID: "商户订单ID",
-    ATIME: "下单时间",
-    PTIME: "支付时间",
-    RTIME: "注册时间",
-    RFGID: "归属游戏",
-    R_PARTNER: "归属媒体渠道",
-    FRCID: "归属渠道号",
-    FRREFER: "归属REFER",
+    MONEY: "档位金额",
+    NUM: "购买数量",
+
 }
 
 
@@ -133,7 +96,7 @@ interface IGetAdOverview {
 const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     loading.value = true;
     const res = await axios({
-        url: "/api/glo_api/_pay_log", method: 'get', params: options
+        url: "/api/glo_api/_dangweimoney_log", method: 'get', params: options
     })
 
     if (res.status === 200) {
