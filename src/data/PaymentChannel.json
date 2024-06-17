@@ -1,0 +1,8 @@
+{
+    "wxpay": "微信",
+    "alipay": "支付宝",
+    "wtpay": "钱包",
+    "card": "信用卡",
+    "applepay": "苹果支付",
+    "google": "谷歌支付"
+}

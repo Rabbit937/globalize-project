@@ -96,7 +96,7 @@ interface IGetAdOverview {
 const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     loading.value = true;
     const res = await axios({
-        url: "/api/glo_api/_pay_log", method: 'get', data: options
+        url: "/api/glo_api/_pay_log", method: 'get', params: options
     })
 
     if (res.status === 200) {
