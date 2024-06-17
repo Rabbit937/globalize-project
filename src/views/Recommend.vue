@@ -51,9 +51,9 @@
 
                             <div class="play-button absolute top-50% left-50% flex items-center justify-center"
                                 style="transform: translate(-50%,-50%);">
-                                <button ref="buttonElRef"
+                                <!-- <button ref="buttonElRef"
                                     class="w-12 h-12 bg-black bg-opacity-50 text-white rounded-full"
-                                    @click="playVideo(videoElRef, buttonElRef, index)">▶</button>
+                                    @click="playVideo(videoElRef, buttonElRef, index)">▶</button> -->
                             </div>
                         </div>
                         <div class="content font-size-12px color-[#565f81]">

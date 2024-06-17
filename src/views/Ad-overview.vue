@@ -2,32 +2,48 @@
     <el-row class="p-8px flex justify-between w-100% px-16px">
         <el-col :span="1.5" class="flex flex-wrap">
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择项目" style="width: 240px" v-model="options.projectId"></el-select>
+                <el-select placeholder="请选择项目" style="width: 240px" v-model="options.projectId" clearable>
+                    <el-option v-for="(item, key) in projectJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-date-picker v-model="options['sdate/edate']" type="daterange" unlink-panels range-separator="To"
-                    start-placeholder="开始日期" end-placeholder="结束日期" :shortcuts="shortcuts" />
+                <el-date-picker v-model="datePickerValue" type="daterange" unlink-panels range-separator="To"
+                    start-placeholder="开始日期" end-placeholder="结束日期" :shortcuts="shortcuts" :format="'YYYY-MM-DD'" />
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择媒体渠道" v-model="options.chId" style="width: 240px"></el-select>
+                <el-select placeholder="请选择媒体渠道" v-model="options.chId" style="width: 240px" clearable>
+                    <el-option v-for="(item, key) in mediaChannelJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择优化师" v-model="options.pitId" style="width: 240px"></el-select>
+                <el-select placeholder="请选择优化师" v-model="options.pitId" style="width: 240px" clearable>
+                    <el-option v-for="(item, key) in OptimizedDivisionJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择投放账户" style="width: 240px" v-model="options.advId"></el-select>
+                <el-select placeholder="请选择投放账户" style="width: 240px" v-model="options.advId" clearable>
+                    <el-option v-for="(item, key) in DeliveryAccountJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择账户主体" style="width: 240px" v-model="options.adcountry"></el-select>
+                <el-select placeholder="请选择投放主体" style="width: 240px" v-model="options.adcountry" clearable>
+                    <el-option v-for="(item, key) in DeliverySubject" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择广告类型" style="width: 240px" v-model="options.adtype"></el-select>
+                <el-select placeholder="请选择广告类型" style="width: 240px" v-model="options.adtype" clearable>
+                    <el-option v-for="(item, key) in AdtypeJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择优化目标" style="width: 240px" v-model="options.adtarget"></el-select>
+                <el-select placeholder="请选择优化目标" style="width: 240px" v-model="options.adtarget" clearable>
+                    <el-option v-for="(item, key) in AdtargetJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
-                <el-select placeholder="请选择平台" style="width: 240px" v-model="options.os"></el-select>
+                <el-select placeholder="请选择平台" style="width: 240px" v-model="options.os" clearable>
+                    <el-option v-for="(item, key) in osJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5">
                 <el-button @click="handleSearch">搜索</el-button>
@@ -38,31 +54,28 @@
 
     <el-row class="px-16px">
         <el-col>
-            <el-table :data="tableData" border style="width: 100% ;height:500px;" v-loading="loading">
-                <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" />
+            <el-table :data="tableData" border style="width: 100% ;height:calc(100vh - 100px - 20px);"
+                v-loading="loading">
+                <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" :width="200"
+                    align="center" />
             </el-table>
         </el-col>
     </el-row>
 </template>
 
 <script lang="ts" setup>
-
-
-
-// 项目:projectId
-// 日期：sdate/edate
-// 媒体渠道：chId
-// 优化师：pitId
-// 投放账户：advId
-// 账户主体：adcountry
-// 广告类型：adtype
-// 优化目标：adtarget
-// 平台：os
-
-
-
 import axios from 'axios';
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted, reactive, watchEffect } from 'vue';
+import dayjs from 'dayjs';
+
+import projectJson from '../data/project.json'
+import mediaChannelJson from '../data/mediaChannel.json'
+import OptimizedDivisionJson from '../data/OptimizedDivision.json'
+import DeliveryAccountJson from '../data/DeliveryAccount.json'
+import DeliverySubject from '../data/DeliverySubject.json'
+import AdtypeJson from '../data/Adtype.json'
+import AdtargetJson from '../data/Adtarget.json'
+import osJson from '../data/os.json'
 
 const origin = {
     YMD: "日期",
@@ -119,9 +132,22 @@ onMounted(() => {
     getAdOverviewFunc();
 })
 
+const datePickerValue = ref();
+
+watchEffect(() => {
+
+    if (datePickerValue.value) {
+        const [sdate, edate] = datePickerValue.value;
+        options.sdate = dayjs(sdate).format('YYYY-MM-DD');
+        options.edate = dayjs(edate).format('YYYY-MM-DD');
+    }
+
+})
+
 
 interface IGetAdOverview {
-    "sdate/edate": string;
+    edate: string;
+    sdate: string;
     chId: string;
     pitId: string;
     advId: string;
@@ -129,13 +155,12 @@ interface IGetAdOverview {
     adtype: string;
     adtarget: string;
     os: string;
-
 }
 
 const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     loading.value = true;
     const res = await axios({
-        url: "/api/glo_api/_ad_overview", method: 'get', data: options
+        url: "/api/glo_api/_ad_overview", method: 'get', params: options
     })
 
     if (res.status === 200) {
@@ -149,7 +174,7 @@ const getAdOverviewFunc = async (options?: IGetAdOverview) => {
 
 const shortcuts = [
     {
-        text: 'Last week',
+        text: '近一周',
         value: () => {
             const end = new Date()
             const start = new Date()
@@ -158,7 +183,7 @@ const shortcuts = [
         },
     },
     {
-        text: 'Last month',
+        text: '近一个月',
         value: () => {
             const end = new Date()
             const start = new Date()
@@ -167,7 +192,7 @@ const shortcuts = [
         },
     },
     {
-        text: 'Last 3 months',
+        text: '近三个月',
         value: () => {
             const end = new Date()
             const start = new Date()
@@ -182,7 +207,8 @@ const loading = ref(false);
 
 const options = reactive({
     projectId: '',
-    "sdate/edate": "",
+    sdate: '',
+    edate: '',
     chId: "",
     pitId: "",
     advId: "",

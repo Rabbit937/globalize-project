@@ -2,153 +2,162 @@
     <el-row class="flex justify-center" style="border-bottom: 1px solid #dcdfe6;">
         <el-col :span="3">
             <el-menu>
-                <el-menu-item disabled>
-                    <span>广告ID</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>高光区域</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>点击区域</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>诱导卖点</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>剧情公式</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>核心元素</span>
-                </el-menu-item>
+                <el-sub-menu>
+                    <template #title>
+                        <span>广告ID</span>
+                    </template>
+                    <el-menu-item>
+                        <span>高光区域</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>点击区域</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>诱导卖点</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>剧情公式</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>核心元素</span>
+                    </el-menu-item>
+                </el-sub-menu>
             </el-menu>
         </el-col>
         <el-col :span="3">
             <el-menu>
-                <el-menu-item disabled>
-                    <span>媒体</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>抖音</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>快手</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>微信</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>新浪</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>华为</span>
-                </el-menu-item>
+                <el-sub-menu>
+                    <template #title>
+                        <span>媒体</span>
+                    </template>
+                    <el-menu-item>
+                        <span>抖音</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>快手</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>微信</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>新浪</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>华为</span>
+                    </el-menu-item>
+                </el-sub-menu>
             </el-menu>
         </el-col>
 
 
         <el-col :span="3">
             <el-menu>
-                <el-menu-item disabled>
-                    <span>广告位置</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>操作习惯</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>视觉习惯</span>
-                </el-menu-item>
-            </el-menu>
-        </el-col>
-
-        <el-col :span="3">
-            <el-menu>
-                <el-menu-item disabled>
-                    <span>注册方式</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>邮箱</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>电话</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>facebook</span>
-                </el-menu-item>
+                <el-sub-menu>
+                    <template #title>
+                        <span>广告位置</span>
+                    </template>
+                    <el-menu-item>
+                        <span>操作习惯</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>视觉习惯</span>
+                    </el-menu-item>
+                </el-sub-menu>
             </el-menu>
         </el-col>
 
         <el-col :span="3">
             <el-menu>
-                <el-menu-item disabled>
-                    <span>网络</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>IP</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>联网方式</span>
-                </el-menu-item>
-                <el-menu-item>
-                    <span>地域</span>
-                </el-menu-item>
+                <el-sub-menu>
+                    <template #title>
+                        <span>注册方式</span>
+                    </template>
+                    <el-menu-item>
+                        <span>邮箱</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>电话</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>facebook</span>
+                    </el-menu-item>
+                </el-sub-menu>
             </el-menu>
         </el-col>
 
         <el-col :span="3">
             <el-menu>
-                <el-menu-item disabled>
-                    <span>活跃</span>
-                </el-menu-item>
-                <el-menu-item @click="enterLoginLog">
-                    <span>登录时间</span>
-                </el-menu-item>
-                <el-menu-item @click="enterLoginLog">
-
-                    <span>主线进程</span>
-                </el-menu-item>
-                <el-menu-item @click="enterLoginLog">
-
-                    <span>副玩法进程</span>
-                </el-menu-item>
-                <el-menu-item @click="enterLoginLog">
-
-                    <span>核心道具获取</span>
-                </el-menu-item>
-                <el-menu-item @click="enterLoginLog">
-
-                    <span>核心数值成长</span>
-                </el-menu-item>
+                <el-sub-menu>
+                    <template #title>
+                        <span>网络</span>
+                    </template>
+                    <el-menu-item>
+                        <span>IP</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>联网方式</span>
+                    </el-menu-item>
+                    <el-menu-item>
+                        <span>地域</span>
+                    </el-menu-item>
+                </el-sub-menu>
             </el-menu>
         </el-col>
 
         <el-col :span="3">
             <el-menu>
-                <el-menu-item disabled>
-                    <span>付费</span>
-                </el-menu-item>
-                <el-menu-item @click="enterPayLog">
-                    <span>支付习惯</span>
-                </el-menu-item>
-                <el-menu-item @click="enterPayLog">
+                <el-sub-menu>
+                    <template #title>
+                        <span>活跃</span>
+                    </template>
+                    <el-menu-item @click="enterLoginLog">
+                        <span>登录时间</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterLoginLog">
 
-                    <span>支付时间</span>
-                </el-menu-item>
-                <el-menu-item @click="enterPayLog">
+                        <span>主线进程</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterLoginLog">
 
-                    <span>日均金额</span>
-                </el-menu-item>
-                <el-menu-item @click="enterPayLog">
+                        <span>副玩法进程</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterLoginLog">
 
-                    <span>月均金额</span>
-                </el-menu-item>
-                <el-menu-item @click="enterPayLog">
+                        <span>核心道具获取</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterLoginLog">
 
-                    <span>档位购买习惯</span>
-                </el-menu-item>
-                <el-menu-item @click="enterPayLog">
+                        <span>核心数值成长</span>
+                    </el-menu-item>
+                </el-sub-menu>
+            </el-menu>
+        </el-col>
 
-                    <span>活动推送参与</span>
-                </el-menu-item>
+        <el-col :span="3">
+            <el-menu>
+                <el-sub-menu>
+                    <template #title>
+                        <span>付费</span>
+                    </template>
+                    <el-menu-item @click="enterPayLog">
+                        <span>支付习惯</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterPayLog">
+                        <span>支付时间</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterPayLog">
+                        <span>日均金额</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterPayLog">
+                        <span>月均金额</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterPayLog">
+                        <span>档位购买习惯</span>
+                    </el-menu-item>
+                    <el-menu-item @click="enterPayLog">
+                        <span>活动推送参与</span>
+                    </el-menu-item>
+                </el-sub-menu>
             </el-menu>
         </el-col>
     </el-row>
@@ -217,7 +226,7 @@ onMounted(() => {
             // name: '销量',
             type: 'bar',
             barWidth: '30%', // 设置柱子的宽度
-            data: [5, 20, 36, 10, 10, 20]
+            data: [50000, 200000, 360000, 100000, 100000, 200000]
         }],
         axisPointer: {
             show: true,
@@ -259,7 +268,7 @@ onMounted(() => {
             // data: ['销量']
         },
         xAxis: {
-            data: ["登录率", "主线完成率", "副本参与率", "核心道具获取进度", "核心数值成长进度"],
+            data: ["支付习惯", "支付时间", "日均金额", "月均金额", "档位购买习惯", "活动推送参与"],
             axisLabel: {
                 interval: 0,
                 rotate: 0,
@@ -277,7 +286,7 @@ onMounted(() => {
             // name: '销量',
             type: 'bar',
             barWidth: '30%', // 设置柱子的宽度
-            data: [5, 20, 36, 10, 10, 20]
+            data: [500000, 2000000, 360001, 1032113, 1000001, 200000]
         }],
         axisPointer: {
             show: true,

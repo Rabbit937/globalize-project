@@ -1,10 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-console.log(import.meta.env.BASE_URL)
-
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
+        {
+            path: '/',
+            redirect: "/home",
+        },
         {
             path: "/home",
             name: 'Home',
@@ -66,6 +68,11 @@ const router = createRouter({
             name: "Strategy",
             component: () => import('../views/Strategy.vue')
         },
+        {
+            path: "/potential_user_analysis",
+            name: 'PotentialUserAnalysis',
+            component: () => import('../views/PotentialUserAnalysis.vue')
+        }
     ]
 })
 

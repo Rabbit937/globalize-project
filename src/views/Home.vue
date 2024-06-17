@@ -1,10 +1,19 @@
 <template>
     <el-row class="w-100% h-100% flex justify-center">
         <el-col class="w-50% flex justify-center items-center" :span="1.5" v-for="box in boxItem" :key="box.id">
-            <el-card style="max-width: 480px" class="p-60px">
-                <el-button link type="primary" @click="handleClickBox(box.id)">
-                    {{ box.text }}
-                </el-button>
+            <el-card style="max-width: 480px" class="w-500px" shadow="hover">
+                <template #header>
+                    <div class="font-size-20px font-bold">
+                        <span>{{ box.title }}</span>
+                    </div>
+                </template>
+
+                <el-menu>
+                    <el-menu-item @click="handleMenuItem(box.itemPath)">{{ box.itemText }}</el-menu-item>
+                    <el-menu-item @click="handleMenuItem(box.itemTwoPath)">{{ box.itemTwoText }}</el-menu-item>
+                </el-menu>
+
+
             </el-card>
         </el-col>
     </el-row>
@@ -18,32 +27,45 @@ const router = useRouter();
 const boxItem = [
     {
         id: 1,
-        text: '奇门',
-        path: '/recommend'
+        title: '奇门',
+        itemText: '素材推荐',
+        itemPath: '/recommend',
+        itemTwoText: '广告数据追踪',
+        itemTwoPath: '/ad_overview'
     },
     {
         id: 2,
-        text: '遁甲',
-        path: '/user_behavior'
+        title: '遁甲',
+        itemText: '遁甲',
+        itemPath: '/dunjia',
+        // itemTwoText: '广告数据追踪',
+        // itemTwoPath: '/ad_overview'
     }, {
         id: 3,
-        text: '火眼',
-        path: '/potential_portrait'
+        title: '火眼',
+        itemText: '潜在用户分析',
+        itemPath: '/potential_user_analysis',
+        itemTwoText: '潜在用户描绘',
+        itemTwoPath: '/strategy'
     }, {
         id: 4,
-        text: '千手',
-        path: '/delivery_strategy'
+        title: '千手',
+        itemText: '百变千手',
+        itemPath: 'https://xmp.jiheconnect.com/overview',
     },
 ]
 
-
-const handleClickBox = (id: number) => {
-    console.log(id)
-
-    for (const box of boxItem) {
-        if (box.id === id) {
-            router.push(box.path)
+const handleMenuItem = (path: string | undefined) => {
+    if (path) {
+        if (path.startsWith("https://")) {
+            handleOpenClick(path)
+        } else {
+            router.push(path);
         }
     }
-} 
+}
+
+const handleOpenClick = (path: string) => {
+    window.open(path, '_blank');
+};
 </script>
