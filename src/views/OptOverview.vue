@@ -30,7 +30,7 @@
     <el-row class="px-16px">
         <el-col>
             <el-table :data="tableData" border style="width: 100% ;height:500px;" v-loading="loading">
-                <el-table-column v-for="(value, key, index) in origin" :prop="key" :label="value" :width="200" align="center"/>
+                <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" :width="200" align="center"/>
             </el-table>
         </el-col>
     </el-row>

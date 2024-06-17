@@ -3,7 +3,7 @@
         <el-col :span="1.5" class="flex flex-wrap">
             <el-col :span="1.5" class="mr-4 mb-10px">
                 <el-select placeholder="请选择项目" style="width: 240px" v-model="options.projectId">
-                    <el-option v-for="(value, key, index) in projectJson" :key="key" :label="value" :value="key" />
+                    <el-option v-for="(value, key) in projectJson" :key="key" :label="value" :value="key" />
                 </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4 mb-10px">
@@ -22,7 +22,7 @@
     <el-row class="px-16px">
         <el-col>
             <el-table :data="tableData" border style="width: 100% ;height:500px;" v-loading="loading">
-                <el-table-column v-for="(value, key, index) in origin" :prop="key" :label="value" />
+                <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" />
             </el-table>
 
             <el-config-provider :locale="zhCn">
@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 import axios from 'axios';
-import { ref, onMounted, reactive, computed, watchEffect } from 'vue';
+import { ref, onMounted, reactive, watchEffect } from 'vue';
 import { zhCn } from "element-plus/es/locales.mjs"
 import projectJson from "../data/project.json"
 
@@ -89,37 +89,6 @@ const getAdOverviewFunc = async (options?: IGetAdOverview) => {
         }
     }
 }
-
-
-const shortcuts = [
-    {
-        text: 'Last week',
-        value: () => {
-            const end = new Date()
-            const start = new Date()
-            start.setDate(start.getDate() - 7)
-            return [start, end]
-        },
-    },
-    {
-        text: 'Last month',
-        value: () => {
-            const end = new Date()
-            const start = new Date()
-            start.setMonth(start.getMonth() - 1)
-            return [start, end]
-        },
-    },
-    {
-        text: 'Last 3 months',
-        value: () => {
-            const end = new Date()
-            const start = new Date()
-            start.setMonth(start.getMonth() - 3)
-            return [start, end]
-        },
-    },
-]
 
 const loading = ref(false);
 
