@@ -1,48 +1,40 @@
 <template>
     <el-row class="w-100% h-100% flex justify-center">
         <el-col class="w-50% flex justify-center items-center" :span="1.5" v-for="box in boxItem" :key="box.id">
-            <!-- <el-card class="w-500px" shadow="hover">
-                <template #header>
-                    <div class="font-size-20px font-bold">
-                        <span>{{ box.title }}</span>
-                    </div>
-                </template>
-<el-menu>
-    <el-menu-item @click="handleMenuItem(box.itemPath)">{{ box.itemText }}</el-menu-item>
-    <el-menu-item @click="handleMenuItem(box.itemTwoPath)">{{ box.itemTwoText }}</el-menu-item>
-</el-menu>
-</el-card> -->
-            <div class="text-center w-20vw" style="border: 1px solid #73726f;">
-                <div class="font-size-20px font-bold bg-[#e9c353] h-50px line-height-50px"
-                    :style="{ backgroundColor: box.bg1 }">
+            <div class="w-20vw">
+                <div class="text-center font-size-30px font-bold bg-[#e9c353] h-50px line-height-50px"
+                    :style="{ backgroundColor: box.bg1 }" style="border-radius: 8px  8px 0px 0;">
                     <span>{{ box.title }}</span>
                 </div>
+                <div class="bg-[#e9d38e] p-1vw h-100px" style="border-radius: 0px  0px 8px 8px;"
+                    :style="{ backgroundColor: box.bg2 }">
+                    <div class="bg-[#eddec4] p-10px px-26px  cursor-pointer tracking-1px flex justify-between items-center"
+                        @click="handleMenuItem(box.itemPath)" style="border-radius: 8px"
+                        :style="{ backgroundColor: box.bg3 }">
 
-
-                <template v-if="box.itemTwoPath">
-                    <div class="bg-[#edd28c] h-50px font-400 line-height-50px cursor-pointer"
-                        style="border-top: 1px solid #73726f;border-bottom: 1px solid #73726f;"
-                        :style="{ backgroundColor: box.bg2 }" @click="handleMenuItem(box.itemPath)">
-                        <span>
-                            {{ box.itemText }}
-                        </span>
+                        <div>
+                            <span>
+                                {{ box.itemText }}
+                            </span>
+                        </div>
+                        <div class="w-25px h-25px">
+                            <img width="100%" height="100%" :src="box.icon1" alt="">
+                        </div>
                     </div>
-                    <div class="bg-[#efdec3] h-50px font-400 line-height-50px cursor-pointer"
-                        :style="{ backgroundColor: box.bg3 }" @click="handleMenuItem(box.itemTwoPath)">
-                        <span>
-                            {{ box.itemTwoText }}
-                        </span>
+                    <div v-if="box.itemTwoText"
+                        class="bg-[#eddec4] p-10px px-26px mt-8px  cursor-pointer tracking-1px flex justify-between items-center"
+                        @click="handleMenuItem(box.itemTwoPath)" style="border-radius: 8px"
+                        :style="{ backgroundColor: box.bg3 }">
+                        <div>
+                            <span>
+                                {{ box.itemTwoText }}
+                            </span>
+                        </div>
+                        <div class="w-25px h-25px">
+                            <img width="100%" height="100%" :src="box.icon2" alt="">
+                        </div>
                     </div>
-                </template>
-                <template v-else>
-                    <div class="bg-[#efdec3] h-100px font-400 line-height-100px cursor-pointer"
-                        style="border-top: 1px solid #73726f;" :style="{ backgroundColor: box.bg2 }"
-                        @click="handleMenuItem(box.itemPath)">
-                        <span>
-                            {{ box.itemText }}
-                        </span>
-                    </div>
-                </template>
+                </div>
 
 
             </div>
@@ -52,6 +44,12 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import tuijian from '../assets/images/tuijian.png'
+import zhuizhong from '../assets/images/zhuizhong.png'
+import dunjia from '../assets/images/dunjia.png'
+import fenxi from '../assets/images/fenxi.png'
+import miaoshu from '../assets/images/miaoshu.png'
+import baibian from '../assets/images/baibian.png'
 
 const router = useRouter();
 
@@ -64,16 +62,20 @@ const boxItem = [
         itemTwoText: '广告数据追踪',
         itemTwoPath: '/ad_overview',
         bg1: '#e9c353',
-        bg2: "#edd28c",
-        bg3: "#efdec3"
+        bg2: "#e9d38e",
+        bg3: "#eddec4",
+        icon1: tuijian,
+        icon2: zhuizhong
     },
     {
         id: 2,
         title: '遁甲',
         itemText: '遁甲',
         itemPath: '/dunjia',
-        bg1: "#9ac19b",
-        bg2: "#d2eddb"
+        bg1: "#9db4c0",
+        bg2: "#c0e1e2",
+        bg3: "#d9edee",
+        icon1: dunjia,
     }, {
         id: 3,
         title: '火眼',
@@ -81,16 +83,21 @@ const boxItem = [
         itemPath: '/potential_user_analysis',
         itemTwoText: '潜在用户描绘',
         itemTwoPath: '/strategy',
-        bg1: '#e99c8f',
-        bg2: "#eed2bf",
-        bg3: "#f5f1e7"
+        bg1: '#e39e90',
+        bg2: "#ebd2bf",
+        bg3: "#f4f1e7",
+        icon1: fenxi,
+        icon2: miaoshu
     }, {
         id: 4,
         title: '千手',
         itemText: '百变千手',
         itemPath: 'https://xmp.jiheconnect.com/overview',
-        bg1: "#ac96b4",
-        bg2: "#dec6e2"
+        bg1: '#ab96b3',
+        bg2: "#ddc6e1",
+        bg3: "#efe0f3",
+        icon1: baibian,
+
     },
 ]
 

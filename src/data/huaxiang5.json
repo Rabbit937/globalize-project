@@ -1,0 +1,1744 @@
+{
+    "nodes": [
+        {
+            "id": "0",
+            "name": "脱发",
+            "symbolSize": 19.12381,
+            "x": -405.06,
+            "y": 555.352,
+            "value": 28.685715,
+            "category": 0
+        },
+        {
+            "id": "1",
+            "name": "酒店",
+            "symbolSize": 2.6666666666666665,
+            "x": -665.056,
+            "y": 977.2,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "2",
+            "name": "美容仪",
+            "symbolSize": 6.323809333333333,
+            "x": -886.675,
+            "y": 709.121,
+            "value": 9.485714,
+            "category": 1
+        },
+        {
+            "id": "3",
+            "name": "洗碗",
+            "symbolSize": 6.323809333333333,
+            "x": -854.902,
+            "y": 375,
+            "value": 9.485714,
+            "category": 1
+        },
+        {
+            "id": "4",
+            "name": "蛀牙",
+            "symbolSize": 2.6666666666666665,
+            "x": -231.656,
+            "y": 183.285,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "5",
+            "name": "技术",
+            "symbolSize": 2.6666666666666665,
+            "x": -567.797,
+            "y": 972.281,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "6",
+            "name": "汽车报价",
+            "symbolSize": 2.6666666666666665,
+            "x": -222.117,
+            "y": 323.829,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "7",
+            "name": "整套茶具",
+            "symbolSize": 2.6666666666666665,
+            "x": -836.558,
+            "y": 145.471,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "8",
+            "name": "益智",
+            "symbolSize": 2.6666666666666665,
+            "x": -742.356,
+            "y": 857.733,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "9",
+            "name": "牙黄",
+            "symbolSize": 2.6666666666666665,
+            "x": -464.533,
+            "y": 263.851,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "10",
+            "name": "接吻",
+            "symbolSize": 2.6666666666666665,
+            "x": -412.284,
+            "y": 327.698,
+            "value": 4,
+            "category": 1
+        },
+        {
+            "id": "11",
+            "name": "汽车买卖",
+            "symbolSize": 66.66666666666667,
+            "x": -226.037,
+            "y": 695.33,
+            "value": 100,
+            "category": 1
+        },
+        {
+            "id": "12",
+            "name": "小吃培训",
+            "symbolSize": 4.495239333333333,
+            "x": -613.483,
+            "y": 903.902,
+            "value": 6.742859,
+            "category": 1
+        },
+        {
+            "id": "13",
+            "name": "针织",
+            "symbolSize": 2.6666666666666665,
+            "x": -557.822,
+            "y": 517.172,
+            "value": 4,
+            "category": 1
+        },
+        {
+            "id": "14",
+            "name": "保湿补水",
+            "symbolSize": 2.6666666666666665,
+            "x": -728.288,
+            "y": 406.534,
+            "value": 4,
+            "category": 1
+        },
+        {
+            "id": "15",
+            "name": "三诺",
+            "symbolSize": 2.6666666666666665,
+            "x": -226.351,
+            "y": 766.554,
+            "value": 4,
+            "category": 1
+        },
+        {
+            "id": "16",
+            "name": "宜家",
+            "symbolSize": 17.295237333333333,
+            "x": -858.731,
+            "y": 232.173,
+            "value": 25.942856,
+            "category": 2
+        },
+        {
+            "id": "17",
+            "name": "末日生存",
+            "symbolSize": 13.638097333333334,
+            "x": -493.692,
+            "y": 502.462,
+            "value": 20.457146,
+            "category": 2
+        },
+        {
+            "id": "18",
+            "name": "找到",
+            "symbolSize": 13.638097333333334,
+            "x": -173.871,
+            "y": 322.826,
+            "value": 20.457146,
+            "category": 2
+        },
+        {
+            "id": "19",
+            "name": "女司机",
+            "symbolSize": 13.638097333333334,
+            "x": -363.892,
+            "y": 958.505,
+            "value": 20.457146,
+            "category": 2
+        },
+        {
+            "id": "20",
+            "name": "肌肤补水",
+            "symbolSize": 13.638097333333334,
+            "x": -705.759,
+            "y": 534.167,
+            "value": 20.457146,
+            "category": 2
+        },
+        {
+            "id": "21",
+            "name": "洁面乳",
+            "symbolSize": 13.638097333333334,
+            "x": -568.075,
+            "y": 948.969,
+            "value": 20.457146,
+            "category": 2
+        },
+        {
+            "id": "22",
+            "name": "力度",
+            "symbolSize": 13.638097333333334,
+            "x": -314.109,
+            "y": 463.092,
+            "value": 20.457146,
+            "category": 2
+        },
+        {
+            "id": "23",
+            "name": "夏天",
+            "symbolSize": 28.266666666666666,
+            "x": -154.271,
+            "y": 574.786,
+            "value": 42.4,
+            "category": 2
+        },
+        {
+            "id": "24",
+            "name": "温柔",
+            "symbolSize": 20.95238266666667,
+            "x": -491.328,
+            "y": 326.746,
+            "value": 31.428574,
+            "category": 7
+        },
+        {
+            "id": "25",
+            "name": "超薄内衣",
+            "symbolSize": 30.095235333333335,
+            "x": -260.589,
+            "y": 554.428,
+            "value": 45.142853,
+            "category": 7
+        },
+        {
+            "id": "26",
+            "name": "除污",
+            "symbolSize": 20.95238266666667,
+            "x": -541.702,
+            "y": 103.905,
+            "value": 31.428574,
+            "category": 6
+        },
+        {
+            "id": "27",
+            "name": "轻薄透气",
+            "symbolSize": 31.923806666666668,
+            "x": -422.441,
+            "y": 210.689,
+            "value": 47.88571,
+            "category": 7
+        },
+        {
+            "id": "28",
+            "name": "手机数据线",
+            "symbolSize": 8.152382000000001,
+            "x": -927.003,
+            "y": 678.768,
+            "value": 12.228573,
+            "category": 4
+        },
+        {
+            "id": "29",
+            "name": "项目",
+            "symbolSize": 15.466666666666667,
+            "x": -210.823,
+            "y": 163.097,
+            "value": 23.2,
+            "category": 3
+        },
+        {
+            "id": "30",
+            "name": "实体店",
+            "symbolSize": 4.495239333333333,
+            "x": -352.163,
+            "y": 806.884,
+            "value": 6.742859,
+            "category": 2
+        },
+        {
+            "id": "31",
+            "name": "电视剧",
+            "symbolSize": 8.152382000000001,
+            "x": -882.442,
+            "y": 834.764,
+            "value": 12.228573,
+            "category": 2
+        },
+        {
+            "id": "32",
+            "name": "抑菌",
+            "symbolSize": 2.6666666666666665,
+            "x": -923.538,
+            "y": 111.787,
+            "value": 4,
+            "category": 1
+        },
+        {
+            "id": "33",
+            "name": "半框眼镜",
+            "symbolSize": 4.495239333333333,
+            "x": -674.372,
+            "y": 822.421,
+            "value": 6.742859,
+            "category": 1
+        },
+        {
+            "id": "34",
+            "name": "品质",
+            "symbolSize": 11.809524666666666,
+            "x": -981.606,
+            "y": 175.334,
+            "value": 17.714287,
+            "category": 3
+        },
+        {
+            "id": "35",
+            "name": "粉质细腻",
+            "symbolSize": 11.809524666666666,
+            "x": -166.677,
+            "y": 630.122,
+            "value": 17.714287,
+            "category": 3
+        },
+        {
+            "id": "36",
+            "name": "产品",
+            "symbolSize": 11.809524666666666,
+            "x": -620.164,
+            "y": 898.681,
+            "value": 17.714287,
+            "category": 3
+        },
+        {
+            "id": "37",
+            "name": "家具定制",
+            "symbolSize": 11.809524666666666,
+            "x": -131.688,
+            "y": 619.754,
+            "value": 17.714287,
+            "category": 3
+        },
+        {
+            "id": "38",
+            "name": "拆卸工具",
+            "symbolSize": 11.809524666666666,
+            "x": -308.953,
+            "y": 722.069,
+            "value": 17.714287,
+            "category": 3
+        },
+        {
+            "id": "39",
+            "name": "洗晒/熨烫",
+            "symbolSize": 6.323809333333333,
+            "x": -668.504,
+            "y": 561.563,
+            "value": 9.485714,
+            "category": 6
+        },
+        {
+            "id": "40",
+            "name": "连衣裙",
+            "symbolSize": 2.6666666666666665,
+            "x": -297.968,
+            "y": 612.352,
+            "value": 4,
+            "category": 7
+        },
+        {
+            "id": "41",
+            "name": "婚礼纪",
+            "symbolSize": 20.95238266666667,
+            "x": -660.565,
+            "y": 847.896,
+            "value": 31.428574,
+            "category": 7
+        },
+        {
+            "id": "42",
+            "name": "瓷砖",
+            "symbolSize": 6.323809333333333,
+            "x": -895.088,
+            "y": 145.025,
+            "value": 9.485714,
+            "category": 7
+        },
+        {
+            "id": "43",
+            "name": "保护脚踝",
+            "symbolSize": 6.323809333333333,
+            "x": -533.679,
+            "y": 315.024,
+            "value": 9.485714,
+            "category": 6
+        },
+        {
+            "id": "44",
+            "name": "厨房卫浴",
+            "symbolSize": 4.495239333333333,
+            "x": -803.653,
+            "y": 738.498,
+            "value": 6.742859,
+            "category": 4
+        },
+        {
+            "id": "45",
+            "name": "系列",
+            "symbolSize": 2.6666666666666665,
+            "x": -652.238,
+            "y": 477.828,
+            "value": 4,
+            "category": 4
+        },
+        {
+            "id": "46",
+            "name": "红烧肉",
+            "symbolSize": 2.6666666666666665,
+            "x": -594.148,
+            "y": 834.37,
+            "value": 4,
+            "category": 5
+        },
+        {
+            "id": "47",
+            "name": "无线麦克风",
+            "symbolSize": 4.495239333333333,
+            "x": -579.21,
+            "y": 730.265,
+            "value": 6.742859,
+            "category": 5
+        },
+        {
+            "id": "48",
+            "name": "养生茶",
+            "symbolSize": 41.06667066666667,
+            "x": -694.463,
+            "y": 365.755,
+            "value": 61.600006,
+            "category": 8
+        },
+        {
+            "id": "49",
+            "name": "货源",
+            "symbolSize": 13.638097333333334,
+            "x": -784.858,
+            "y": 534.757,
+            "value": 20.457146,
+            "category": 6
+        },
+        {
+            "id": "50",
+            "name": "厨卫用品",
+            "symbolSize": 4.495239333333333,
+            "x": -117.412,
+            "y": 161.312,
+            "value": 6.742859,
+            "category": 6
+        },
+        {
+            "id": "51",
+            "name": "植发",
+            "symbolSize": 13.638097333333334,
+            "x": -163.802,
+            "y": 476.408,
+            "value": 20.457146,
+            "category": 6
+        },
+        {
+            "id": "52",
+            "name": "保养皮肤",
+            "symbolSize": 4.495239333333333,
+            "x": -249.855,
+            "y": 728.634,
+            "value": 6.742859,
+            "category": 6
+        },
+        {
+            "id": "53",
+            "name": "幻兽",
+            "symbolSize": 2.6666666666666665,
+            "x": -927.585,
+            "y": 586.438,
+            "value": 4,
+            "category": 6
+        },
+        {
+            "id": "54",
+            "name": "加绒加厚",
+            "symbolSize": 8.152382000000001,
+            "x": -303.8,
+            "y": 602.896,
+            "value": 12.228573,
+            "category": 6
+        },
+        {
+            "id": "55",
+            "name": "海鲜/水产品",
+            "symbolSize": 35.58095333333333,
+            "x": -973.322,
+            "y": 795.083,
+            "value": 53.37143,
+            "category": 6
+        },
+        {
+            "id": "56",
+            "name": "狼毫",
+            "symbolSize": 4.495239333333333,
+            "x": -464.708,
+            "y": 878.526,
+            "value": 6.742859,
+            "category": 6
+        },
+        {
+            "id": "57",
+            "name": "宝宝",
+            "symbolSize": 20.95238266666667,
+            "x": -537.496,
+            "y": 432.489,
+            "value": 31.428574,
+            "category": 8
+        },
+        {
+            "id": "58",
+            "name": "衣物清洁",
+            "symbolSize": 28.266666666666666,
+            "x": -931.293,
+            "y": 940.064,
+            "value": 42.4,
+            "category": 8
+        },
+        {
+            "id": "59",
+            "name": "拍照配件",
+            "symbolSize": 20.95238266666667,
+            "x": -369.916,
+            "y": 158.922,
+            "value": 31.428574,
+            "category": 8
+        },
+        {
+            "id": "60",
+            "name": "胶原",
+            "symbolSize": 17.295237333333333,
+            "x": -239.936,
+            "y": 875.153,
+            "value": 25.942856,
+            "category": 8
+        },
+        {
+            "id": "61",
+            "name": "梳子",
+            "symbolSize": 20.95238266666667,
+            "x": -899.236,
+            "y": 406.823,
+            "value": 31.428574,
+            "category": 8
+        },
+        {
+            "id": "62",
+            "name": "办公商务",
+            "symbolSize": 24.609526666666667,
+            "x": -143.8,
+            "y": 362.144,
+            "value": 36.91429,
+            "category": 8
+        },
+        {
+            "id": "63",
+            "name": "大衣",
+            "symbolSize": 22.780953333333333,
+            "x": -823.819,
+            "y": 944.297,
+            "value": 34.17143,
+            "category": 8
+        },
+        {
+            "id": "64",
+            "name": "茶器",
+            "symbolSize": 24.609526666666667,
+            "x": -868.748,
+            "y": 154.344,
+            "value": 36.91429,
+            "category": 8
+        },
+        {
+            "id": "65",
+            "name": "中国",
+            "symbolSize": 22.780953333333333,
+            "x": -448.564,
+            "y": 971.099,
+            "value": 34.17143,
+            "category": 8
+        },
+        {
+            "id": "66",
+            "name": "提花",
+            "symbolSize": 19.12381,
+            "x": -512.405,
+            "y": 930.332,
+            "value": 28.685715,
+            "category": 8
+        },
+        {
+            "id": "67",
+            "name": "相亲",
+            "symbolSize": 2.6666666666666665,
+            "x": -436.211,
+            "y": 285.923,
+            "value": 4,
+            "category": 8
+        },
+        {
+            "id": "68",
+            "name": "宝宝鞋子",
+            "symbolSize": 19.12381,
+            "x": -131.823,
+            "y": 454.653,
+            "value": 28.685715,
+            "category": 7
+        },
+        {
+            "id": "69",
+            "name": "收纳包",
+            "symbolSize": 19.12381,
+            "x": -966.04,
+            "y": 890.535,
+            "value": 28.685715,
+            "category": 7
+        },
+        {
+            "id": "70",
+            "name": "上门安装",
+            "symbolSize": 19.12381,
+            "x": -317.615,
+            "y": 522.819,
+            "value": 28.685715,
+            "category": 7
+        },
+        {
+            "id": "71",
+            "name": "2-5座",
+            "symbolSize": 17.295237333333333,
+            "x": -921.877,
+            "y": 108.488,
+            "value": 25.942856,
+            "category": 7
+        },
+        {
+            "id": "72",
+            "name": "药品保健",
+            "symbolSize": 6.323809333333333,
+            "x": -755.917,
+            "y": 312.913,
+            "value": 9.485714,
+            "category": 1
+        },
+        {
+            "id": "73",
+            "name": "非油炸",
+            "symbolSize": 4.495239333333333,
+            "x": -285.852,
+            "y": 959.14,
+            "value": 6.742859,
+            "category": 8
+        },
+        {
+            "id": "74",
+            "name": "拖鞋男",
+            "symbolSize": 4.495239333333333,
+            "x": -419.051,
+            "y": 249.838,
+            "value": 6.742859,
+            "category": 8
+        },
+        {
+            "id": "75",
+            "name": "生普",
+            "symbolSize": 13.638097333333334,
+            "x": -338.262,
+            "y": 554.008,
+            "value": 20.457146,
+            "category": 7
+        },
+        {
+            "id": "76",
+            "name": "欢乐斗地主",
+            "symbolSize": 13.638097333333334,
+            "x": -738.295,
+            "y": 797.807,
+            "value": 20.457146,
+            "category": 8
+        }
+    ],
+    "links": [
+        {
+            "source": "1",
+            "target": "0"
+        },
+        {
+            "source": "2",
+            "target": "0"
+        },
+        {
+            "source": "3",
+            "target": "0"
+        },
+        {
+            "source": "3",
+            "target": "2"
+        },
+        {
+            "source": "4",
+            "target": "0"
+        },
+        {
+            "source": "5",
+            "target": "0"
+        },
+        {
+            "source": "6",
+            "target": "0"
+        },
+        {
+            "source": "7",
+            "target": "0"
+        },
+        {
+            "source": "8",
+            "target": "0"
+        },
+        {
+            "source": "9",
+            "target": "0"
+        },
+        {
+            "source": "11",
+            "target": "0"
+        },
+        {
+            "source": "11",
+            "target": "2"
+        },
+        {
+            "source": "11",
+            "target": "3"
+        },
+        {
+            "source": "11",
+            "target": "10"
+        },
+        {
+            "source": "12",
+            "target": "11"
+        },
+        {
+            "source": "13",
+            "target": "11"
+        },
+        {
+            "source": "14",
+            "target": "11"
+        },
+        {
+            "source": "15",
+            "target": "11"
+        },
+        {
+            "source": "17",
+            "target": "16"
+        },
+        {
+            "source": "18",
+            "target": "16"
+        },
+        {
+            "source": "18",
+            "target": "17"
+        },
+        {
+            "source": "19",
+            "target": "16"
+        },
+        {
+            "source": "19",
+            "target": "17"
+        },
+        {
+            "source": "19",
+            "target": "18"
+        },
+        {
+            "source": "20",
+            "target": "16"
+        },
+        {
+            "source": "20",
+            "target": "17"
+        },
+        {
+            "source": "20",
+            "target": "18"
+        },
+        {
+            "source": "20",
+            "target": "19"
+        },
+        {
+            "source": "21",
+            "target": "16"
+        },
+        {
+            "source": "21",
+            "target": "17"
+        },
+        {
+            "source": "21",
+            "target": "18"
+        },
+        {
+            "source": "21",
+            "target": "19"
+        },
+        {
+            "source": "21",
+            "target": "20"
+        },
+        {
+            "source": "22",
+            "target": "16"
+        },
+        {
+            "source": "22",
+            "target": "17"
+        },
+        {
+            "source": "22",
+            "target": "18"
+        },
+        {
+            "source": "22",
+            "target": "19"
+        },
+        {
+            "source": "22",
+            "target": "20"
+        },
+        {
+            "source": "22",
+            "target": "21"
+        },
+        {
+            "source": "23",
+            "target": "11"
+        },
+        {
+            "source": "23",
+            "target": "12"
+        },
+        {
+            "source": "23",
+            "target": "16"
+        },
+        {
+            "source": "23",
+            "target": "17"
+        },
+        {
+            "source": "23",
+            "target": "18"
+        },
+        {
+            "source": "23",
+            "target": "19"
+        },
+        {
+            "source": "23",
+            "target": "20"
+        },
+        {
+            "source": "23",
+            "target": "21"
+        },
+        {
+            "source": "23",
+            "target": "22"
+        },
+        {
+            "source": "24",
+            "target": "11"
+        },
+        {
+            "source": "24",
+            "target": "23"
+        },
+        {
+            "source": "25",
+            "target": "11"
+        },
+        {
+            "source": "25",
+            "target": "23"
+        },
+        {
+            "source": "25",
+            "target": "24"
+        },
+        {
+            "source": "26",
+            "target": "11"
+        },
+        {
+            "source": "26",
+            "target": "16"
+        },
+        {
+            "source": "26",
+            "target": "24"
+        },
+        {
+            "source": "26",
+            "target": "25"
+        },
+        {
+            "source": "27",
+            "target": "11"
+        },
+        {
+            "source": "27",
+            "target": "23"
+        },
+        {
+            "source": "27",
+            "target": "24"
+        },
+        {
+            "source": "27",
+            "target": "25"
+        },
+        {
+            "source": "27",
+            "target": "26"
+        },
+        {
+            "source": "28",
+            "target": "11"
+        },
+        {
+            "source": "28",
+            "target": "27"
+        },
+        {
+            "source": "29",
+            "target": "11"
+        },
+        {
+            "source": "29",
+            "target": "23"
+        },
+        {
+            "source": "29",
+            "target": "27"
+        },
+        {
+            "source": "30",
+            "target": "23"
+        },
+        {
+            "source": "31",
+            "target": "11"
+        },
+        {
+            "source": "31",
+            "target": "23"
+        },
+        {
+            "source": "31",
+            "target": "27"
+        },
+        {
+            "source": "31",
+            "target": "30"
+        },
+        {
+            "source": "32",
+            "target": "11"
+        },
+        {
+            "source": "33",
+            "target": "11"
+        },
+        {
+            "source": "33",
+            "target": "27"
+        },
+        {
+            "source": "34",
+            "target": "11"
+        },
+        {
+            "source": "34",
+            "target": "29"
+        },
+        {
+            "source": "35",
+            "target": "11"
+        },
+        {
+            "source": "35",
+            "target": "29"
+        },
+        {
+            "source": "35",
+            "target": "34"
+        },
+        {
+            "source": "36",
+            "target": "11"
+        },
+        {
+            "source": "36",
+            "target": "29"
+        },
+        {
+            "source": "36",
+            "target": "34"
+        },
+        {
+            "source": "36",
+            "target": "35"
+        },
+        {
+            "source": "37",
+            "target": "11"
+        },
+        {
+            "source": "37",
+            "target": "29"
+        },
+        {
+            "source": "37",
+            "target": "34"
+        },
+        {
+            "source": "37",
+            "target": "35"
+        },
+        {
+            "source": "37",
+            "target": "36"
+        },
+        {
+            "source": "38",
+            "target": "11"
+        },
+        {
+            "source": "38",
+            "target": "29"
+        },
+        {
+            "source": "38",
+            "target": "34"
+        },
+        {
+            "source": "38",
+            "target": "35"
+        },
+        {
+            "source": "38",
+            "target": "36"
+        },
+        {
+            "source": "38",
+            "target": "37"
+        },
+        {
+            "source": "39",
+            "target": "25"
+        },
+        {
+            "source": "40",
+            "target": "25"
+        },
+        {
+            "source": "41",
+            "target": "24"
+        },
+        {
+            "source": "41",
+            "target": "25"
+        },
+        {
+            "source": "42",
+            "target": "24"
+        },
+        {
+            "source": "42",
+            "target": "25"
+        },
+        {
+            "source": "42",
+            "target": "41"
+        },
+        {
+            "source": "43",
+            "target": "11"
+        },
+        {
+            "source": "43",
+            "target": "26"
+        },
+        {
+            "source": "43",
+            "target": "27"
+        },
+        {
+            "source": "44",
+            "target": "11"
+        },
+        {
+            "source": "44",
+            "target": "28"
+        },
+        {
+            "source": "45",
+            "target": "28"
+        },
+        {
+            "source": "47",
+            "target": "46"
+        },
+        {
+            "source": "48",
+            "target": "11"
+        },
+        {
+            "source": "48",
+            "target": "25"
+        },
+        {
+            "source": "48",
+            "target": "27"
+        },
+        {
+            "source": "48",
+            "target": "47"
+        },
+        {
+            "source": "49",
+            "target": "11"
+        },
+        {
+            "source": "49",
+            "target": "26"
+        },
+        {
+            "source": "50",
+            "target": "24"
+        },
+        {
+            "source": "50",
+            "target": "49"
+        },
+        {
+            "source": "51",
+            "target": "11"
+        },
+        {
+            "source": "51",
+            "target": "26"
+        },
+        {
+            "source": "51",
+            "target": "49"
+        },
+        {
+            "source": "52",
+            "target": "39"
+        },
+        {
+            "source": "52",
+            "target": "51"
+        },
+        {
+            "source": "53",
+            "target": "51"
+        },
+        {
+            "source": "54",
+            "target": "26"
+        },
+        {
+            "source": "54",
+            "target": "49"
+        },
+        {
+            "source": "54",
+            "target": "51"
+        },
+        {
+            "source": "55",
+            "target": "11"
+        },
+        {
+            "source": "55",
+            "target": "16"
+        },
+        {
+            "source": "55",
+            "target": "25"
+        },
+        {
+            "source": "55",
+            "target": "26"
+        },
+        {
+            "source": "55",
+            "target": "39"
+        },
+        {
+            "source": "55",
+            "target": "41"
+        },
+        {
+            "source": "55",
+            "target": "48"
+        },
+        {
+            "source": "55",
+            "target": "49"
+        },
+        {
+            "source": "55",
+            "target": "51"
+        },
+        {
+            "source": "55",
+            "target": "54"
+        },
+        {
+            "source": "56",
+            "target": "49"
+        },
+        {
+            "source": "56",
+            "target": "55"
+        },
+        {
+            "source": "57",
+            "target": "41"
+        },
+        {
+            "source": "57",
+            "target": "48"
+        },
+        {
+            "source": "57",
+            "target": "55"
+        },
+        {
+            "source": "58",
+            "target": "11"
+        },
+        {
+            "source": "58",
+            "target": "27"
+        },
+        {
+            "source": "58",
+            "target": "48"
+        },
+        {
+            "source": "58",
+            "target": "55"
+        },
+        {
+            "source": "58",
+            "target": "57"
+        },
+        {
+            "source": "59",
+            "target": "48"
+        },
+        {
+            "source": "59",
+            "target": "55"
+        },
+        {
+            "source": "59",
+            "target": "57"
+        },
+        {
+            "source": "59",
+            "target": "58"
+        },
+        {
+            "source": "60",
+            "target": "48"
+        },
+        {
+            "source": "60",
+            "target": "58"
+        },
+        {
+            "source": "60",
+            "target": "59"
+        },
+        {
+            "source": "61",
+            "target": "48"
+        },
+        {
+            "source": "61",
+            "target": "55"
+        },
+        {
+            "source": "61",
+            "target": "57"
+        },
+        {
+            "source": "61",
+            "target": "58"
+        },
+        {
+            "source": "61",
+            "target": "59"
+        },
+        {
+            "source": "61",
+            "target": "60"
+        },
+        {
+            "source": "62",
+            "target": "41"
+        },
+        {
+            "source": "62",
+            "target": "48"
+        },
+        {
+            "source": "62",
+            "target": "55"
+        },
+        {
+            "source": "62",
+            "target": "57"
+        },
+        {
+            "source": "62",
+            "target": "58"
+        },
+        {
+            "source": "62",
+            "target": "59"
+        },
+        {
+            "source": "62",
+            "target": "60"
+        },
+        {
+            "source": "62",
+            "target": "61"
+        },
+        {
+            "source": "63",
+            "target": "48"
+        },
+        {
+            "source": "63",
+            "target": "55"
+        },
+        {
+            "source": "63",
+            "target": "57"
+        },
+        {
+            "source": "63",
+            "target": "58"
+        },
+        {
+            "source": "63",
+            "target": "59"
+        },
+        {
+            "source": "63",
+            "target": "60"
+        },
+        {
+            "source": "63",
+            "target": "61"
+        },
+        {
+            "source": "63",
+            "target": "62"
+        },
+        {
+            "source": "64",
+            "target": "11"
+        },
+        {
+            "source": "64",
+            "target": "48"
+        },
+        {
+            "source": "64",
+            "target": "55"
+        },
+        {
+            "source": "64",
+            "target": "57"
+        },
+        {
+            "source": "64",
+            "target": "58"
+        },
+        {
+            "source": "64",
+            "target": "59"
+        },
+        {
+            "source": "64",
+            "target": "60"
+        },
+        {
+            "source": "64",
+            "target": "61"
+        },
+        {
+            "source": "64",
+            "target": "62"
+        },
+        {
+            "source": "64",
+            "target": "63"
+        },
+        {
+            "source": "65",
+            "target": "48"
+        },
+        {
+            "source": "65",
+            "target": "55"
+        },
+        {
+            "source": "65",
+            "target": "57"
+        },
+        {
+            "source": "65",
+            "target": "58"
+        },
+        {
+            "source": "65",
+            "target": "59"
+        },
+        {
+            "source": "65",
+            "target": "60"
+        },
+        {
+            "source": "65",
+            "target": "61"
+        },
+        {
+            "source": "65",
+            "target": "62"
+        },
+        {
+            "source": "65",
+            "target": "63"
+        },
+        {
+            "source": "65",
+            "target": "64"
+        },
+        {
+            "source": "66",
+            "target": "48"
+        },
+        {
+            "source": "66",
+            "target": "58"
+        },
+        {
+            "source": "66",
+            "target": "59"
+        },
+        {
+            "source": "66",
+            "target": "60"
+        },
+        {
+            "source": "66",
+            "target": "61"
+        },
+        {
+            "source": "66",
+            "target": "62"
+        },
+        {
+            "source": "66",
+            "target": "63"
+        },
+        {
+            "source": "66",
+            "target": "64"
+        },
+        {
+            "source": "66",
+            "target": "65"
+        },
+        {
+            "source": "67",
+            "target": "57"
+        },
+        {
+            "source": "68",
+            "target": "11"
+        },
+        {
+            "source": "68",
+            "target": "24"
+        },
+        {
+            "source": "68",
+            "target": "25"
+        },
+        {
+            "source": "68",
+            "target": "27"
+        },
+        {
+            "source": "68",
+            "target": "41"
+        },
+        {
+            "source": "68",
+            "target": "48"
+        },
+        {
+            "source": "69",
+            "target": "11"
+        },
+        {
+            "source": "69",
+            "target": "24"
+        },
+        {
+            "source": "69",
+            "target": "25"
+        },
+        {
+            "source": "69",
+            "target": "27"
+        },
+        {
+            "source": "69",
+            "target": "41"
+        },
+        {
+            "source": "69",
+            "target": "48"
+        },
+        {
+            "source": "69",
+            "target": "68"
+        },
+        {
+            "source": "70",
+            "target": "11"
+        },
+        {
+            "source": "70",
+            "target": "24"
+        },
+        {
+            "source": "70",
+            "target": "25"
+        },
+        {
+            "source": "70",
+            "target": "27"
+        },
+        {
+            "source": "70",
+            "target": "41"
+        },
+        {
+            "source": "70",
+            "target": "58"
+        },
+        {
+            "source": "70",
+            "target": "68"
+        },
+        {
+            "source": "70",
+            "target": "69"
+        },
+        {
+            "source": "71",
+            "target": "11"
+        },
+        {
+            "source": "71",
+            "target": "25"
+        },
+        {
+            "source": "71",
+            "target": "27"
+        },
+        {
+            "source": "71",
+            "target": "41"
+        },
+        {
+            "source": "71",
+            "target": "48"
+        },
+        {
+            "source": "71",
+            "target": "68"
+        },
+        {
+            "source": "71",
+            "target": "69"
+        },
+        {
+            "source": "71",
+            "target": "70"
+        },
+        {
+            "source": "72",
+            "target": "11"
+        },
+        {
+            "source": "72",
+            "target": "26"
+        },
+        {
+            "source": "72",
+            "target": "27"
+        },
+        {
+            "source": "73",
+            "target": "48"
+        },
+        {
+            "source": "74",
+            "target": "48"
+        },
+        {
+            "source": "74",
+            "target": "73"
+        },
+        {
+            "source": "75",
+            "target": "25"
+        },
+        {
+            "source": "75",
+            "target": "41"
+        },
+        {
+            "source": "75",
+            "target": "48"
+        },
+        {
+            "source": "75",
+            "target": "68"
+        },
+        {
+            "source": "75",
+            "target": "69"
+        },
+        {
+            "source": "75",
+            "target": "70"
+        },
+        {
+            "source": "75",
+            "target": "71"
+        },
+        {
+            "source": "76",
+            "target": "48"
+        },
+        {
+            "source": "76",
+            "target": "58"
+        },
+        {
+            "source": "76",
+            "target": "62"
+        },
+        {
+            "source": "76",
+            "target": "63"
+        },
+        {
+            "source": "76",
+            "target": "64"
+        },
+        {
+            "source": "76",
+            "target": "65"
+        },
+        {
+            "source": "76",
+            "target": "66"
+        }
+    ],
+    "categories": [
+        {
+            "name": "性格编号"
+        },
+        {
+            "name": "趣味编好"
+        },
+        {
+            "name": "性格编号"
+        },
+        {
+            "name": "用户消费价值"
+        },
+        {
+            "name": "社会属性"
+        },
+        {
+            "name": "媒体属性"
+        },
+        {
+            "name": "付费编号"
+        },
+        {
+            "name": "人际社交"
+        },
+        {
+            "name": "客诉交际"
+        }
+    ]
+}

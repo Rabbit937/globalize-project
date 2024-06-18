@@ -1,25 +1,28 @@
 <template>
+    <HeaderVue />
     <el-row class="p-8px flex justify-between">
         <el-col :span="1.5" class="flex">
             <el-col :span="1.5" class="mr-4">
-                <el-input placeholder="请输入项目名称" v-model="inputVal"></el-input>
+                <el-select placeholder="请选择项目" style="width: 240px" v-model="projectId">
+                    <el-option v-for="(item, key) in projectJson" :key="key" :label="item" :value="key" />
+                </el-select>
             </el-col>
             <el-col :span="1.5" class="mr-4">
                 <el-button ref="buttonRef" v-click-outside="onClickOutside">推荐偏好</el-button>
-                <el-popover ref="popoverRef" :virtual-ref="buttonRef" trigger="click" virtual-triggering :width="800">
+                <el-popover ref="popoverRef" :virtual-ref="buttonRef" trigger="click" virtual-triggering :width="1200">
                     <div class="popober flex h-300px">
                         <el-table ref="multipleTableRef" :data="ActivePaymentDimension" style="width: 50%;height:100%;"
                             @selection-change="handleSelectionChange" border>
                             <el-table-column type="selection" />
-                            <el-table-column prop="key" label="编号" />
-                            <el-table-column prop="value" label="偏好" width="200" />
+                            <el-table-column prop="key" label="编号" width="200" />
+                            <el-table-column prop="value" label="偏好" />
                         </el-table>
 
                         <el-table ref="multipleTableRef" :data="AdvertisingDisplayDimensionData"
                             @selection-change="handleSelectionChange2" style="width: 50%;height:100%;" border>
                             <el-table-column type="selection" />
-                            <el-table-column prop="key" label="编号" />
-                            <el-table-column prop="value" label="偏好" width="200" />
+                            <el-table-column prop="key" label="编号" width="200" />
+                            <el-table-column prop="value" label="偏好" />
                         </el-table>
                     </div>
                 </el-popover>
@@ -28,12 +31,14 @@
                 <el-button @click="handleSearch">搜索</el-button>
             </el-col>
         </el-col>
+        <el-col :span="1.5" class="pr-100px">
+            <el-button @click="handleMore">更多</el-button>
+        </el-col>
     </el-row>
     <el-row class="p-8px">
         <el-scrollbar style="width:100%;min-height:300px;max-height: 800px;height: calc(100vh - 120px - 50px);">
             <ul class="flex flex-wrap p-0px overflow-auto" v-loading="loading">
-                <li class="w-260px list-none mr-12px mb-12px" v-for="(video) in paginatedData"
-                    :key="video.title">
+                <li class="w-260px list-none mr-12px mb-12px" v-for="(video, index) in tableData" :key="index">
                     <div
                         class="card w-100% border border-gray-300 rounded-lg overflow-hidden  font-sans border-style-solid">
                         <div class="video-container relative  w-100% h-300px">
@@ -57,12 +62,10 @@
                             </div>
                         </div>
                         <div class="content font-size-12px color-[#565f81]">
-                            <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis cursor-pointer"
-                                @click="handleClick">
+                            <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis cursor-pointer">
                                 标题 <span class="font-bold">{{ video.title }}</span>
                             </div>
-                            <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis cursor-pointer"
-                                @click="handleClick">
+                            <div class="p-2 font-600 overflow-hidden whitespace-nowrap text-ellipsis cursor-pointer">
                                 描述 <span>{{ video.describe }}</span>
                             </div>
 
@@ -89,11 +92,6 @@
                                     <div class="py-0.5">
                                         <span>{{ video.findCntSum }}万</span>
                                     </div>
-                                    <div>
-                                        <el-button link type="primary" size="small"
-                                            @click="router.push('/user_behavior')">用户行为分析</el-button link type="primary"
-                                            size="small">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -111,13 +109,13 @@
 
 
 <script lang="ts" setup>
-import { ref, computed, watchEffect, unref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, unref, onMounted } from 'vue'
+import HeaderVue from '../components/Header.vue'
 import dayjs from 'dayjs'
 import { zhCn } from "element-plus/es/locales.mjs";
-import videos from '../data/videos.json'
 import ActivePaymentDimension from '../data/ActivePaymentDimension.json'
 import AdvertisingDisplayDimensionData from '../data/AdvertisingDisplayDimensionData.json'
+import projectJson from '../data/project.json'
 import axios from 'axios'
 
 
@@ -129,7 +127,6 @@ const onClickOutside = () => {
     unref(popoverRef).popperRef?.delayHide?.()
 }
 
-const router = useRouter();
 
 const videoElRef = ref<HTMLVideoElement[]>();
 /* const buttonElRef = ref<HTMLButtonElement[]>();
@@ -161,10 +158,9 @@ const playVideo = (videoElRef: HTMLVideoElement[] | undefined, buttonElRef: HTML
     }
 } */
 
-
-const videosRef = ref(videos);
 const loading = ref(false)
 
+const projectId = ref();
 
 interface IVideosProps {
     projectId: string;
@@ -172,7 +168,14 @@ interface IVideosProps {
     filter1: any[];
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     filter2: any[];
+    page?: number;
+    num?: number;
 }
+
+const currentPage = ref(1);
+const pageSize = ref(20);
+const total = ref();
+const tableData = ref();
 
 const getVideosFunc = async (options?: IVideosProps) => {
     loading.value = true;
@@ -180,8 +183,8 @@ const getVideosFunc = async (options?: IVideosProps) => {
     // https://manage.jiheconnect.com/glo_api/_qimenvideos?filter1=&filter2=&projectId=
     const res = await axios({
         method: 'get',
-        url: '/api/glo_api/_qimenvideos ',
-        data: options
+        url: '/glo_api/_qimenvideos',
+        params: options
     })
 
 
@@ -189,7 +192,8 @@ const getVideosFunc = async (options?: IVideosProps) => {
 
     if (res.status === 200) {
         if (res.data.state === 1) {
-            videosRef.value = res.data.data;
+            tableData.value = res.data.data;
+            total.value = res.data.total;
             loading.value = false;
         }
     }
@@ -202,35 +206,30 @@ onMounted(() => {
 })
 
 
-const currentPage = ref(1);
-const pageSize = ref(20);
-const total = computed(() => videosRef.value.length);
 
-const paginatedData = computed(() => {
-    const start = (currentPage.value - 1) * pageSize.value;
-    const end = start + pageSize.value;
-    return videosRef.value.slice(start, end);
-});
 
 const handlePageChange = (page: number) => {
     currentPage.value = page;
+    getVideosFunc({
+        projectId: projectId.value,
+        filter1: multipleSelection.value,
+        filter2: multipleSelection2.value,
+        page: currentPage.value,
+        num: pageSize.value
+    })
+
 };
 
 const handleSizeChange = (size: number) => {
     pageSize.value = size;
+    getVideosFunc({
+        projectId: projectId.value,
+        filter1: multipleSelection.value,
+        filter2: multipleSelection2.value,
+        page: currentPage.value,
+        num: pageSize.value
+    })
 }
-
-const inputVal = ref();
-
-watchEffect(() => {
-    console.log(inputVal.value)
-})
-
-const handleClick = () => {
-    window.open('http://cas.jiheconnect.com/', '_blank');
-};
-
-
 
 const multipleSelection = ref([])
 const multipleSelection2 = ref([])
@@ -247,10 +246,16 @@ const handleSelectionChange2 = (val: any) => {
 
 const handleSearch = () => {
     getVideosFunc({
-        projectId: inputVal.value,
+        projectId: projectId.value,
         filter1: multipleSelection.value,
         filter2: multipleSelection2.value,
+        page: currentPage.value,
+        num: pageSize.value
     })
+}
+
+const handleMore = () => {
+    window.open('http://cas.jiheconnect.com/', '_blank');
 }
 
 </script>

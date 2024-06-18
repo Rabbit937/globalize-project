@@ -1,4 +1,7 @@
 <template>
+
+    <HeaderVue />
+
     <el-row class="p-8px flex justify-between w-100% px-16px">
         <el-col :span="1.5" class="flex flex-wrap">
             <el-col :span="1.5" class="mr-4 mb-10px">
@@ -44,7 +47,7 @@
 
     <el-row class="px-16px">
         <el-col>
-            <el-table :data="tableData" border style="width: 100% ;height:calc(100vh - 150px);" v-loading="loading">
+            <el-table :data="tableData" border style="width: 100% ;height:calc(100vh - 150px - 60px);" v-loading="loading">
                 <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" :width="200"
                     align="center" />
             </el-table>
@@ -70,7 +73,7 @@ import CycleJson from '../data/Cycle.json'
 import PayStallJson from '../data/PayStall.json'
 import osJson from '../data/os.json'
 
-
+import HeaderVue from '../components/Header.vue'
 
 const origin = {
     PGIDNAME: "父游戏",
@@ -133,7 +136,7 @@ interface IGetAdOverview {
 const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     loading.value = true;
     const res = await axios({
-        url: "/api/glo_api/_pay_log", method: 'get', params: options
+        url: "/glo_api/_pay_log", method: 'get', params: options
     })
 
     if (res.status === 200) {

@@ -1,4 +1,7 @@
 <template>
+
+    <HeaderVue />
+
     <el-row class="p-8px flex justify-between w-100% px-16px">
         <el-col :span="1.5" class="flex flex-wrap">
             <el-col :span="1.5" class="mr-4 mb-10px">
@@ -44,7 +47,7 @@
 
     <el-row class="px-16px">
         <el-col>
-            <el-table fit :data="tableData" border style="width: 100% ;height:calc(100vh - 100px - 20px);"
+            <el-table fit :data="tableData" border style="width: 100% ;height:calc(100vh - 100px - 20px - 60px);"
                 v-loading="loading">
                 <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" :width="200"
                     align="center" />
@@ -64,6 +67,8 @@ import paymentHabit from '../data/PaymentHabit.json'
 import CycleJson from '../data/Cycle.json'
 import PayStallJson from '../data/PayStall.json'
 import osJson from '../data/os.json'
+
+import HeaderVue from '../components/Header.vue'
 
 const origin = {
     YMD: "日期",
@@ -116,7 +121,7 @@ interface IGetAdOverview {
 const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     loading.value = true;
     const res = await axios({
-        url: "/api/glo_api/_pay_overview", method: 'get', params: options
+        url: "/glo_api/_pay_overview", method: 'get', params: options
     })
 
     if (res.status === 200) {

@@ -1,4 +1,5 @@
 <template>
+    <HeaderVue />
     <el-row class="p-8px flex justify-between w-100% px-16px">
         <el-col :span="1.5" class="flex flex-wrap">
             <el-col :span="1.5" class="mr-4 mb-10px">
@@ -54,7 +55,7 @@
 
     <el-row class="px-16px">
         <el-col>
-            <el-table :data="tableData" border style="width: 100% ;height:calc(100vh - 100px - 20px);"
+            <el-table :data="tableData" border style="width: 100% ;height:calc(100vh - 100px - 20px - 60px);"
                 v-loading="loading">
                 <el-table-column v-for="(value, key) in origin" :prop="key" :label="value" :width="200"
                     align="center" />
@@ -67,6 +68,7 @@
 import axios from 'axios';
 import { ref, onMounted, reactive, watchEffect } from 'vue';
 import dayjs from 'dayjs';
+import HeaderVue from '../components/Header.vue'
 
 import projectJson from '../data/project.json'
 import mediaChannelJson from '../data/mediaChannel.json'
@@ -79,6 +81,7 @@ import osJson from '../data/os.json'
 
 const origin = {
     YMD: "日期",
+    ADID: "广告ID",
     AD_COST: "广告金额",
     ACT_COST: "激活单价",
     REG_DUID_COST: "注册单价",
@@ -160,7 +163,7 @@ interface IGetAdOverview {
 const getAdOverviewFunc = async (options?: IGetAdOverview) => {
     loading.value = true;
     const res = await axios({
-        url: "/api/glo_api/_ad_overview", method: 'get', params: options
+        url: "/glo_api/_ad_overview", method: 'get', params: options
     })
 
     if (res.status === 200) {
